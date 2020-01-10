@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{341831C4-8B50-4D54-9C5C-12AFEA4D9ECE}|Default">
+  <MonoDevelop.Ide.ItemProperties.App.Rent.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.8E3AF760-2535-42DF-B68D-A64A6B0B9539" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="App/Rent/Rent/ViewModels/Session/EmailPageViewModel.cs">
+    <Files>
+      <File FileName="App/Rent/Rent/ViewModels/Session/EmailPageViewModel.cs" Line="44" Column="35" />
+      <File FileName="App/Rent/Rent/Models/Response.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Rent" expanded="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.App.Rent.Android PreferredExecutionTarget="Android.SelectDevice" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/carlosdiaz/RentApp/Rent/App/Rent/Rent/ViewModels/Session/RegisterPageViewModel.cs" relfile="App/Rent/Rent/ViewModels/Session/RegisterPageViewModel.cs" line="53" column="1" />
+      <Breakpoint file="/Users/carlosdiaz/RentApp/Rent/App/Rent/Rent/Helpers/Utils.cs" relfile="App/Rent/Rent/Helpers/Utils.cs" line="91" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
