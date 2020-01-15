@@ -13,19 +13,22 @@ namespace RentApp.iOS
     [Register("AppDelegate")]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
-        //
-        // This method is invoked when the application has loaded and is ready to run. In this 
-        // method you should instantiate the window, load the UI into it and then make the window
-        // visible.
-        //
-        // You have 17 seconds to return from this method, or iOS will terminate your application.
-        //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
-        {
+        {           
             global::Xamarin.Forms.Forms.Init();
+            FormsToolkit.iOS.Toolkit.Init();
             LoadApplication(new App());
+            return base.FinishedLaunching(app, options);          
+        }
 
-            return base.FinishedLaunching(app, options);
+
+        public void SetColor()
+        {
+            UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, false);
+            UIApplication.SharedApplication.SetStatusBarHidden(false, false);
+            UINavigationBar.Appearance.BarTintColor = UIColor.Black;
+            //UINavigationBar.Appearance.TintColor = UIColor.White;
+            UINavigationBar.Appearance.BackgroundColor = UIColor.Red;
         }
     }
 }

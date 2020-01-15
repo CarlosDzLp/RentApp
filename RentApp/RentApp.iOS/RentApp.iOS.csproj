@@ -67,6 +67,8 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controls\CanvasViewRenderer.cs" />
+    <Compile Include="Controls\ShapeUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -122,8 +124,14 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991477" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.6.292</Version>
+    </PackageReference>
+    <PackageReference Include="FormsToolkit">
+      <Version>2.0.1</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -131,5 +139,29 @@
       <Project>{8EBF1CB6-EFCD-4D9F-8F90-50BA71391A4A}</Project>
       <Name>RentApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\arrow_back.png" />
+    <BundleResource Include="Resources\emaillottie.json" />
+    <BundleResource Include="Resources\error.png" />
+    <BundleResource Include="Resources\facebook.png" />
+    <BundleResource Include="Resources\ic_email.png" />
+    <BundleResource Include="Resources\ic_email%402x.png" />
+    <BundleResource Include="Resources\ic_email%403x.png" />
+    <BundleResource Include="Resources\ic_hide.png" />
+    <BundleResource Include="Resources\ic_hide%402x.png" />
+    <BundleResource Include="Resources\ic_hide%403x.png" />
+    <BundleResource Include="Resources\ic_password.png" />
+    <BundleResource Include="Resources\ic_password%402x.png" />
+    <BundleResource Include="Resources\ic_password%403x.png" />
+    <BundleResource Include="Resources\ic_show.png" />
+    <BundleResource Include="Resources\ic_show%402x.png" />
+    <BundleResource Include="Resources\ic_show%403x.png" />
+    <BundleResource Include="Resources\logo.png" />
+    <BundleResource Include="Resources\photo.png" />
+    <BundleResource Include="Resources\success.png" />
   </ItemGroup>
 </Project>

@@ -6,11 +6,19 @@ namespace RentApp
 {
     public partial class App : Application
     {
+        public static NavigationPage Navigation { get; set; }
         public App()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = navigation(new Views.Session.LoginPage());
+        }
+
+
+        private NavigationPage navigation(Page page)
+        {
+            Navigation = new NavigationPage(page);
+            return Navigation;
         }
 
         protected override void OnStart()
