@@ -69,6 +69,8 @@
     <Compile Include="Controls\RoundedCornerOutlineProvider.cs" />
     <Compile Include="Controls\CanvasViewRenderer.cs" />
     <Compile Include="Controls\CanvasDrawable.cs" />
+    <Compile Include="Controls\CustomEntryRenderer.cs" />
+    <Compile Include="Controls\CustomButtonRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

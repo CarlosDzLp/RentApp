@@ -18,7 +18,7 @@ namespace RentApp.Views.Session
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            MessagingService.Current.SendMessage(MessageKeys.StatusBar, false);
+            MessagingService.Current.SendMessage(MessageKeys.StatusBar, true);
         }
     }
 }
