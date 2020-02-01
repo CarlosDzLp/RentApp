@@ -3,6 +3,7 @@ namespace RentApp.Helpers
 {
     public class MessageKeys
     {
-        public const string StatusBar = "StatusBar";
+        public bool StatusBarTransparent = true;
+        public string ColorHex = string.Empty;
     }
 }

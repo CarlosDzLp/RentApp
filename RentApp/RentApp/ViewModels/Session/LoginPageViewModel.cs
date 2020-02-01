@@ -1,12 +1,19 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using RentApp.ViewModels.Base;
 using Xamarin.Forms;
+using Prism.Commands;
+using Prism.Mvvm;
+using Prism.Navigation;
+using RentApp.Helpers;
+using RentApp.Service;
 
 namespace RentApp.ViewModels.Session
 {
-    public class LoginPageViewModel : BindableBase
+    public class LoginPageViewModel : BindableViewBase
     {
+        private IServiceClient _serviceClient;
         #region Properties
         private string _email;
         public string Email
@@ -36,15 +43,12 @@ namespace RentApp.ViewModels.Session
         #endregion
 
         #region Constructor
-        public LoginPageViewModel()
+        public LoginPageViewModel(INavigationService navigationService, IServiceClient serviceClient , IDialogs userDialogsService) : base(navigationService, userDialogsService)
         {
-            TapImgCommand = new Command(TapImgCommandExecuted);
-            LogInCommand = new Command(LogInCommandExecuted);
+            _serviceClient = serviceClient;
+            TapImgCommand = new DelegateCommand(TapImgCommandExecuted);
+            LogInCommand = new DelegateCommand(LogInCommandExecuted);
         }
-
-        
-
-
         #endregion
 
         #region Methods
@@ -73,9 +77,12 @@ namespace RentApp.ViewModels.Session
                 band = 0;
             }
         }
-        private void LogInCommandExecuted()
+
+        private async void LogInCommandExecuted()
         {
-            
+            await UserDialogsService.Show("Cargando...");
+            var guid = Guid.NewGuid();
+            var response = await _serviceClient.Get<string>($"user/companylogin?IdCompany={guid}");
         }
         #endregion
     }

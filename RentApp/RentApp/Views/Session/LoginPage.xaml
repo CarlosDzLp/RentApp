@@ -4,6 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:RentApp.Controls"
     x:Class="RentApp.Views.Session.LoginPage"
+    xmlns:prism="http://prismlibrary.com"
+    prism:ViewModelLocator.AutowireViewModel="True"
     BackgroundColor="White">
     <ContentPage.Content>
         <ScrollView
@@ -18,9 +20,13 @@
                     Padding="30,0">
                     <controls:CanvasView
                         Elevation="2"
-                        Padding="10,0"
                         CornerRadius="10"
                         BackgroundColor="White">
+                        <controls:CanvasView.Padding>
+                            <OnPlatform x:TypeArguments="Thickness" 
+                                Android="10,0" 
+                                iOS="10"/>
+                        </controls:CanvasView.Padding>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
@@ -34,7 +40,13 @@
                                 Placeholder="Correo"
                                 TextColor="Black"
                                 Text="{Binding Email}"
-                                Grid.Column="1"/>
+                                Grid.Column="1">
+                                <Entry.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double"
+                                        Android="15" 
+                                        iOS="20"/>
+                                </Entry.FontSize>
+                            </Entry>
                         </Grid>
                     </controls:CanvasView>
                 </StackLayout>
@@ -43,9 +55,13 @@
                     Padding="30,0">
                     <controls:CanvasView
                         Elevation="2"
-                        Padding="10,0"
                         CornerRadius="10"
                         BackgroundColor="White">
+                        <controls:CanvasView.Padding>
+                            <OnPlatform x:TypeArguments="Thickness" 
+                                Android="10,0" 
+                                iOS="10"/>
+                        </controls:CanvasView.Padding>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
@@ -58,10 +74,16 @@
                             <Entry
                                 IsPassword="{Binding IsPassword}"
                                 PlaceholderColor="#EDEDED"
-                                Placeholder="Correo"
+                                Placeholder="Contraseña"
                                 TextColor="Black"
                                 Text="{Binding Password}"
-                                Grid.Column="1"/>
+                                Grid.Column="1">
+                                <Entry.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double"
+                                        Android="15" 
+                                        iOS="20"/>
+                                </Entry.FontSize>
+                            </Entry>
                             <Image
                                 Grid.Column="2"
                                 Source="{Binding Img}">
@@ -83,7 +105,13 @@
                         BackgroundColor="White"
                         BorderWidth="2"
                         BorderColor="Black"
-                        CornerRadius="0"/>
+                        CornerRadius="0">
+                        <controls:CustomButton.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double"
+                                Android="15" 
+                                iOS="20"/>
+                        </controls:CustomButton.FontSize>
+                    </controls:CustomButton>
                 </StackLayout>
                 <StackLayout
                     HorizontalOptions="Center">

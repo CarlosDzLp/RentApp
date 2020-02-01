@@ -12,13 +12,17 @@ namespace RentApp.Views.Session
         public LoginPage()
         {
             InitializeComponent();
-            this.BindingContext = new LoginPageViewModel();
             NavigationPage.SetHasNavigationBar(this, false);
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            MessagingService.Current.SendMessage(MessageKeys.StatusBar, true);
+            MessagingService.Current.SendMessage<MessageKeys>("StatusBar", new MessageKeys { StatusBarTransparent = true, ColorHex = "#0CB392" });
+        }
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            MessagingService.Current.Unsubscribe("StatusBar");
         }
     }
 }
