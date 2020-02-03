@@ -26,7 +26,8 @@ namespace RentApp
             NavigationService.NavigateAsync(new System.Uri("/NavigationViewPage/CarouselPage", System.UriKind.Absolute));
         }
 
-        public static NavigationPage NavigationViewPage { get; set; }
+        public static MasterDetailPage MasterDetail { get; set; }
+        public static NavigationViewPage NavigationViewPage { get; set; }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
@@ -34,7 +35,10 @@ namespace RentApp
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<Views.Presentation.CarouselPage, CarouselPageViewModel>();
 
-
+            //MasterDetail User
+            containerRegistry.RegisterForNavigation<Views.Principal.User.UserMasterDetailPage>("MasterUser");
+            containerRegistry.RegisterForNavigation<Views.Principal.User.UserMasterDetailPageDetail>();
+            containerRegistry.RegisterForNavigation<Views.Principal.User.UserMasterDetailPageMaster>();
 
 
             //Services

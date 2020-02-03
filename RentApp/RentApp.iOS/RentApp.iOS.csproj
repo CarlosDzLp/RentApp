@@ -73,6 +73,7 @@
     <Compile Include="Helpers\Dialogs.cs" />
     <Compile Include="Helpers\ColorHelper.cs" />
     <Compile Include="Helpers\PathString.cs" />
+    <Compile Include="Controls\CustomMasterDetailPageRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

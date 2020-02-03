@@ -86,6 +86,7 @@
     <Compile Include="Helpers\Dialogs.cs" />
     <Compile Include="Helpers\CustomAlertDialogs.cs" />
     <Compile Include="Helpers\PathString.cs" />
+    <Compile Include="Controls\CustonNavigationPageRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

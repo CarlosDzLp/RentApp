@@ -34,5 +34,8 @@
     <Folder Include="Models\Presentations\" />
     <Folder Include="ViewModels\Presentation\" />
     <Folder Include="Models\Tokens\" />
+    <Folder Include="Views\Principal\" />
+    <Folder Include="Views\Principal\Administrator\" />
+    <Folder Include="Views\Principal\User\" />
   </ItemGroup>
 </Project>

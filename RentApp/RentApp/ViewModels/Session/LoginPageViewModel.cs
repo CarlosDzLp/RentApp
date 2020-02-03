@@ -83,6 +83,8 @@ namespace RentApp.ViewModels.Session
             await UserDialogsService.Show("Cargando...");
             var guid = Guid.NewGuid();
             var response = await _serviceClient.Get<string>($"user/companylogin?IdCompany={guid}");
+            await UserDialogsService.Hide();
+            await NavigationService.NavigateAsync("/MasterUser");
         }
         #endregion
     }
