@@ -16,18 +16,32 @@ namespace RentApp.iOS.Helpers
     {
         public async Task Hide()
         {
-            SVProgressHUD.Dismiss();
+            try
+            {
+                SVProgressHUD.Dismiss();
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
         public async Task Show(string message)
         {
-            SVProgressHUD.SetDefaultStyle(SVProgressHUDStyle.Custom);
-            SVProgressHUD.ShowWithMaskType(SVProgressHUDMaskType.Black);
-            SVProgressHUD.SetDefaultMaskType(SVProgressHUDMaskType.Black);
-            SVProgressHUD.SetDefaultAnimationType(SVProgressHUDAnimationType.Flat);
-            UIView.AnimationsEnabled = true;
-            SVProgressHUD.SetForegroundColor(UIKit.UIColor.Black);
-            SVProgressHUD.Show();
+            try
+            {
+                SVProgressHUD.SetDefaultStyle(SVProgressHUDStyle.Custom);
+                SVProgressHUD.ShowWithMaskType(SVProgressHUDMaskType.Black);
+                SVProgressHUD.SetDefaultMaskType(SVProgressHUDMaskType.Black);
+                SVProgressHUD.SetDefaultAnimationType(SVProgressHUDAnimationType.Flat);
+                UIView.AnimationsEnabled = true;
+                SVProgressHUD.SetForegroundColor(UIKit.UIColor.Black);
+                SVProgressHUD.Show();
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
         public async Task Snackbar(string message, string title, TypeSnackbar typeSnackbar)

@@ -7,10 +7,10 @@ using CoreGraphics;
 using UIKit;
 using System.ComponentModel;
 
-[assembly: ExportRenderer(typeof(NavigationViewPage), typeof(CustomMasterDetailPageRenderer))]
+[assembly: ExportRenderer(typeof(NavigationViewPage), typeof(CustonNavigationPageRenderer))]
 namespace RentApp.iOS.Controls
 {
-    public class CustomMasterDetailPageRenderer : NavigationRenderer
+    public class CustonNavigationPageRenderer : NavigationRenderer
     {
         protected override void OnElementChanged(VisualElementChangedEventArgs e)
         {

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using RentApp.Helpers;
+using RentApp.Models.Company;
 using RentApp.Models.Tokens;
+using RentApp.Models.Users;
 using SQLite;
 using Xamarin.Forms;
 
@@ -34,6 +36,8 @@ namespace RentApp.DataBase
                 var dbPath = DependencyService.Get<IPath>().FilePath();
                 connection = new SQLiteConnection(dbPath, true);
                 connection.CreateTable<TokenRequest>();
+                connection.CreateTable<UserModel>();
+                connection.CreateTable<CompanyModel>();
             }
             catch (Exception ex)
             {
@@ -60,6 +64,58 @@ namespace RentApp.DataBase
             try
             {
                 return connection.Table<TokenRequest>().FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region User
+        public void InsertUser(UserModel user)
+        {
+            try
+            {
+                connection.DeleteAll<UserModel>();
+                connection.Insert(user);
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
+        public UserModel GetUser()
+        {
+            try
+            {
+                return connection.Table<UserModel>().FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region Company
+        public void InsertCompany(CompanyModel company)
+        {
+            try
+            {
+                connection.DeleteAll<CompanyModel>();
+                connection.Insert(company);
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
+        public CompanyModel GetCompany()
+        {
+            try
+            {
+                return connection.Table<CompanyModel>().FirstOrDefault();
             }
             catch (Exception ex)
             {

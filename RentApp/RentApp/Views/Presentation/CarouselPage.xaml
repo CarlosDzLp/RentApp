@@ -5,7 +5,6 @@
     xmlns:controls="clr-namespace:RentApp.Controls"
     xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     iOS:Page.UseSafeArea="True"
-    iOS:NavigationPage.HideNavigationBarSeparator="true"
     x:Class="RentApp.Views.Presentation.CarouselPage">
     <ContentPage.Content>
         <StackLayout
@@ -34,22 +33,21 @@
                                     <StackLayout
                                         Grid.Column="0"
                                         Grid.Row="0">
-                                        <Image
-                                            IsAnimationPlaying="True"
+                                        <controls:ImageGifs
                                             VerticalOptions="Center"
-                                            Source="{Binding Image}"/>                            
+                                            HeightRequest="300"
+                                            Img="{Binding Image}"/>                          
                                     </StackLayout>
                                     <StackLayout
                                         Grid.Column="0"
                                         Grid.Row="1">
                                         <Label Text="{Binding Title}"
-                                           TextColor="White"
+                                           TextColor="Black"
                                            VerticalOptions="CenterAndExpand"
                                            HorizontalTextAlignment="Center"
-                                           FontSize="Title" />
+                                           FontSize="25" />
                                     </StackLayout>
                                     <StackLayout
-                                        BackgroundColor="Red"
                                         VerticalOptions="End"
                                         IsVisible="{Binding IsVisible}"
                                         Grid.Column="0"
@@ -61,7 +59,11 @@
                                             Command="{Binding BindingContext.GetStarted,Source={x:Reference TheCarousel}}"
                                             CommandParameter="{Binding .}"
                                             BackgroundColor="White"
-                                            TextColor="{Binding ColorHex}"
+                                            TextColor="Black"
+                                            FontSize="20"
+                                            BorderColor="Black"
+                                            BorderWidth="2"
+                                            CornerRadius="0"
                                             Text="Empezar"/>
                                     </StackLayout>
                                 </Grid>

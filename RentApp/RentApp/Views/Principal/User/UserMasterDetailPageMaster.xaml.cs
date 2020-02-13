@@ -6,7 +6,8 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-
+using RentApp.Models.Menus;
+using RentApp.ViewModels.Principal.User;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,5 +22,15 @@ namespace RentApp.Views.Principal.User
         {
             InitializeComponent();
         }
+
+        //void CustomListView_ItemSelected(System.Object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        //{
+            //if(e.SelectedItem != null)
+            //{
+                //var item = e.SelectedItem as MenusModel;
+                //(BindingContext as UserMasterDetailPageMasterViewModel).SelectecMenuUser.Execute(item);
+            //}               
+            //(sender as ListView).SelectedItem = null;
+        //}
     }
 }

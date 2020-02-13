@@ -30,7 +30,7 @@ namespace RentApp.iOS
         {
             public void RegisterTypes(IContainerRegistry containerRegistry)
             {
-                containerRegistry.RegisterInstance<IDialogs>(dial);
+                containerRegistry.RegisterInstance<IDialogs>( dial);
             }
         }
 

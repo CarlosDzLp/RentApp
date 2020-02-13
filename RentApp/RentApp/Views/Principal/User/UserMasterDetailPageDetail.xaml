@@ -1,12 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage
+<TabbedPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="RentApp.Views.Principal.User.UserMasterDetailPageDetail"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    android:TabbedPage.ToolbarPlacement="Bottom"
+    UnselectedTabColor="Gray"
+    SelectedTabColor="#F4364C"
     BackgroundColor="White"
+    BarBackgroundColor="White"
     Title="Home">
-    <StackLayout Padding="10" BackgroundColor="White">
-        <Label
-            Text="This is a detail page. ." />
-    </StackLayout>
-</ContentPage>
+    <TabbedPage.Children>
+        <ContentPage
+            IconImageSource="ic_show"
+            Title="Holafhgfhg"
+            BackgroundColor="White" >
+            <Grid               
+                BackgroundColor="White"
+                Padding="10">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    HorizontalOptions="Center"
+                    VerticalTextAlignment="Center"
+                    VerticalOptions="Center"
+                    TextColor="Black"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    Text="hola mexico querido soy la page uno"/>
+            </Grid>
+        </ContentPage>
+        <ContentPage IconImageSource="ic_show" Title="mexico">
+            <Grid
+                BackgroundColor="#EDEDED"
+                Padding="10">
+
+                <Label
+                    HorizontalTextAlignment="Center"
+                    HorizontalOptions="Center"
+                    VerticalTextAlignment="Center"
+                    VerticalOptions="Center"
+                    TextColor="Black"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    Text="hola mexico querido soy la page dos"/>
+            </Grid>
+        </ContentPage>
+        <ContentPage IconImageSource="ic_show" Title="holis">
+            <Grid
+                BackgroundColor="#EDEDED"
+                Padding="10">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    HorizontalOptions="Center"
+                    VerticalTextAlignment="Center"
+                    VerticalOptions="Center"
+                    TextColor="Black"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    Text="hola mexico querido soy la page tres"/>
+            </Grid>
+        </ContentPage>
+    </TabbedPage.Children>
+</TabbedPage>

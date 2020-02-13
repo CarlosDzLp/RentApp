@@ -11,6 +11,9 @@ using Plugin.CurrentActivity;
 using Prism;
 using Prism.Ioc;
 using RentApp.Droid.Helpers;
+using Android.Support.Design.Widget;
+using Android.Support.V4.App;
+using Android;
 
 namespace RentApp.Droid
 {
@@ -18,6 +21,7 @@ namespace RentApp.Droid
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         static Dialogs dial = new Dialogs();
+        static BottomSheetDroid bottom = new BottomSheetDroid();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -25,8 +29,10 @@ namespace RentApp.Droid
 
             base.OnCreate(savedInstanceState);
             FormsToolkit.Droid.Toolkit.Init();
+            GetPermissions();
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
+            Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App(new AndroidInitializer()));
             MessagingService.Current.Subscribe<MessageKeys>("StatusBar", (args, sender) =>
@@ -42,11 +48,40 @@ namespace RentApp.Droid
             });
         }
 
+        private void GetPermissions()
+        {
+            try
+            {
+                ActivityCompat.RequestPermissions(this, new string[]
+                {
+                    Manifest.Permission.Camera,
+                    Manifest.Permission.ReadExternalStorage,
+                    Manifest.Permission.WriteExternalStorage,
+                }, 0);
+            }
+            catch
+            {
+
+            }
+        }
+
+        public override void OnBackPressed()
+        {
+            if (Rg.Plugins.Popup.Popup.SendBackPressed(base.OnBackPressed))
+            {
+                //Debug.WriteLine("Android back button: There are some pages in the PopupStack");
+            }
+            else
+            {
+                //Debug.WriteLine("Android back button: There are not any pages in the PopupStack");
+            }
+        }
         public class AndroidInitializer : IPlatformInitializer
         {
             public void RegisterTypes(IContainerRegistry containerRegistry)
             {
                 containerRegistry.RegisterInstance<IDialogs>(dial);
+                containerRegistry.RegisterInstance<IBottomSheet>(bottom);
             }
         }
 

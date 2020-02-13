@@ -17,6 +17,9 @@
     <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
     <PackageReference Include="FormsToolkit" Version="2.0.1" />
     <PackageReference Include="Prism.Unity.Forms" Version="7.2.0.1422" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.2.0.223" />
+    <PackageReference Include="Xamanimation" Version="1.3.0" />
+    <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\" />
@@ -37,5 +40,14 @@
     <Folder Include="Views\Principal\" />
     <Folder Include="Views\Principal\Administrator\" />
     <Folder Include="Views\Principal\User\" />
+    <Folder Include="Effects\" />
+    <Folder Include="ViewModels\Principal\" />
+    <Folder Include="ViewModels\Principal\Administrator\" />
+    <Folder Include="ViewModels\Principal\User\" />
+    <Folder Include="Models\Menus\" />
+    <Folder Include="Models\Response\" />
+    <Folder Include="Converts\" />
+    <Folder Include="Models\Users\" />
+    <Folder Include="Models\Company\" />
   </ItemGroup>
 </Project>

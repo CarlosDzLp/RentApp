@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="RentApp.Views.Session.RegisterPage"
+    BackgroundColor="White"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:controls="clr-namespace:RentApp.Controls"
+    xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"    
+    prism:ViewModelLocator.AutowireViewModel="True">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout
+                Padding="25,20,0,0">
+                <StackLayout.Behaviors>
+                    <xamanimation:EntranceTransition
+	                    Duration="1000"/>
+                </StackLayout.Behaviors>
+                <Image
+                    x:Name="FadeBox"
+                    HorizontalOptions="Start"
+                    HeightRequest="60"
+                    Source="back_arrow">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoBackCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <ScrollView>
+                <StackLayout
+                    VerticalOptions="CenterAndExpand">
+                    <StackLayout
+                        Margin="0,20,0,0">
+                        <controls:ImageGifs
+                            HeightRequest="300"
+                            Img="email_register"/>
+                    </StackLayout>
+                    <StackLayout
+                        Padding="30,0">
+                        <controls:CanvasView
+                            Elevation="2"
+                            CornerRadius="10"
+                            BackgroundColor="White">
+                            <controls:CanvasView.Padding>
+                                <OnPlatform x:TypeArguments="Thickness" 
+                                    Android="10,0" 
+                                    iOS="10"/>
+                            </controls:CanvasView.Padding>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Grid.Column="0"
+                                    Source="ic_email"/>
+                                <Entry
+                                    PlaceholderColor="#EDEDED"
+                                    Placeholder="Correo"
+                                    TextColor="Black"
+                                    Text="{Binding Email}"
+                                    Grid.Column="1">
+                                    <Entry.FontSize>
+                                        <OnPlatform x:TypeArguments="x:Double"
+                                            Android="18" 
+                                            iOS="20"/>
+                                    </Entry.FontSize>
+                                </Entry>
+                                <controls:CustomImage
+                                    Grid.Column="2"
+                                    IsTintColor="True"
+                                    HeightRequest="25"
+                                    TintColorImage="{Binding TintColor}"
+                                    Source="{Binding Img}">
+                                </controls:CustomImage>
+                            </Grid>
+                        </controls:CanvasView>
+                    </StackLayout>
+                    <StackLayout
+                        Margin="0,10"
+                        Padding="30,0">
+                        <controls:CustomButton
+                            IsCapital="False"
+                            Command="{Binding ValidateEmailCommand}"
+                            Text="Iniciar Sesion"
+                            TextColor="Black"
+                            BackgroundColor="White"
+                            BorderWidth="2"
+                            BorderColor="Black"
+                            CornerRadius="0">
+                            <controls:CustomButton.FontSize>
+                                <OnPlatform x:TypeArguments="x:Double"
+                                    Android="15" 
+                                    iOS="20"/>
+                            </controls:CustomButton.FontSize>
+                        </controls:CustomButton>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

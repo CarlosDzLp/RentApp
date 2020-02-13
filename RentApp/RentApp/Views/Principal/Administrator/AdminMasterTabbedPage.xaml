@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TabbedPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="RentApp.Views.Principal.Administrator.AdminMasterTabbedPage"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:administrator="clr-namespace:RentApp.Views.Principal.Administrator"
+    android:TabbedPage.ToolbarPlacement="Bottom"
+    UnselectedTabColor="Gray"
+    SelectedTabColor="#F4364C"
+    BackgroundColor="White"
+    BarBackgroundColor="White">
+    <TabbedPage.Children>
+        <administrator:HomeAdminPage/>       
+        <administrator:SearchAdminPage/>
+        <administrator:AccountAdminPage/>
+    </TabbedPage.Children>
+</TabbedPage>

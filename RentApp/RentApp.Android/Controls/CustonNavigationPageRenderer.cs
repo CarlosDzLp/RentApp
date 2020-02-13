@@ -18,10 +18,8 @@ namespace RentApp.Droid.Controls
         private NavigationViewPage navigationview;
         protected override void OnElementChanged(ElementChangedEventArgs<NavigationPage> e)
         {
-            base.OnElementChanged(e);
-            if (e.NewElement == null) return;
-
             navigationview = (NavigationViewPage)e.NewElement;
+            base.OnElementChanged(e);
         }
 
 

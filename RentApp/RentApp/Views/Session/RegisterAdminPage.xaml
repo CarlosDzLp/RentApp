@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="RentApp.Views.Session.RegisterAdminPage"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:controls="clr-namespace:RentApp.Controls"
+    xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"    
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout
+                Padding="25,20,0,0">               
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout
+                        Grid.Column="0">
+                        <StackLayout.Behaviors>
+                            <xamanimation:EntranceTransition
+	                            Duration="1000"/>
+                        </StackLayout.Behaviors>
+                        <Image
+                            x:Name="FadeBox"
+                            HorizontalOptions="Start"
+                            HeightRequest="60"
+                            Source="back_arrow">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoBackCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                    <StackLayout
+                        Grid.Column="1">                       
+                        <controls:ImageGifs
+                            HeightRequest="90"
+                            Img="location_map">
+                            <controls:ImageGifs.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding LocationCommad}"/>
+                            </controls:ImageGifs.GestureRecognizers>
+                        </controls:ImageGifs>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+            <StackLayout>
+                <Label
+                    HorizontalOptions="Center"
+                    FontAttributes="Bold"
+                    FontSize="40"
+                    TextColor="Black"
+                    Text="Arrendatarios"/>        
+            </StackLayout>
+            <ScrollView>
+                <StackLayout
+                    Padding="30,10">
+                    <StackLayout
+                        Margin="0,0,0,20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="Center">
+                        <Grid
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="Center"
+                            Padding="0"
+                            Margin="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="Center"
+                                Margin="0"
+                                Padding="0"
+                                Grid.Column="0">
+                                <Image
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    HeightRequest="150"
+                                    Source="{Binding Photo,Converter={StaticResource imageconvertbytes}}"/>
+                            </StackLayout>
+                            <StackLayout
+                                HorizontalOptions="End"
+                                VerticalOptions="End"
+                                Margin="0"
+                                Padding="0"
+                                Grid.Column="0">
+                                <Image
+                                    Margin="0,0,10,10"
+                                    HeightRequest="40"
+                                    Source="photo">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding LoadPhotoCommand}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </StackLayout>
+                        </Grid>
+                    </StackLayout>
+                    <controls:CanvasView
+                        Elevation="2"
+                        CornerRadius="10"
+                        BackgroundColor="White">
+                        <controls:CanvasView.Padding>
+                            <OnPlatform x:TypeArguments="Thickness" 
+                                Android="10,0" 
+                                iOS="10"/>
+                        </controls:CanvasView.Padding>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Entry
+                                PlaceholderColor="#EDEDED"
+                                Placeholder="Nombre"
+                                TextColor="Black"
+                                Text="{Binding Name}"
+                                Grid.Column="0">
+                                <Entry.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double"
+                                        Android="18" 
+                                        iOS="20"/>
+                                </Entry.FontSize>
+                            </Entry>
+                        </Grid>
+                    </controls:CanvasView>
+                    <controls:CanvasView
+                        Elevation="2"
+                        CornerRadius="10"
+                        BackgroundColor="White">
+                        <controls:CanvasView.Padding>
+                            <OnPlatform x:TypeArguments="Thickness" 
+                                Android="10,0" 
+                                iOS="10"/>
+                        </controls:CanvasView.Padding>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Entry
+                                PlaceholderColor="#EDEDED"
+                                Placeholder="Apellidos"
+                                TextColor="Black"
+                                Text="{Binding LastName}"
+                                Grid.Column="0">
+                                <Entry.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double"
+                                        Android="18" 
+                                        iOS="20"/>
+                                </Entry.FontSize>
+                            </Entry>
+                        </Grid>
+                    </controls:CanvasView>
+                    <controls:CanvasView
+                        Elevation="2"
+                        CornerRadius="10"
+                        BackgroundColor="White">
+                        <controls:CanvasView.Padding>
+                            <OnPlatform x:TypeArguments="Thickness" 
+                                Android="10,0" 
+                                iOS="10"/>
+                        </controls:CanvasView.Padding>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Entry
+                                PlaceholderColor="#EDEDED"
+                                Placeholder="Contraseña"
+                                TextColor="Black"
+                                Text="{Binding Password}"
+                                Grid.Column="0">
+                                <Entry.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double"
+                                        Android="18" 
+                                        iOS="20"/>
+                                </Entry.FontSize>
+                            </Entry>
+                        </Grid>
+                    </controls:CanvasView>
+                    <controls:CanvasView
+                        Elevation="2"
+                        CornerRadius="10"
+                        BackgroundColor="White">
+                        <controls:CanvasView.Padding>
+                            <OnPlatform x:TypeArguments="Thickness" 
+                                Android="10,0" 
+                                iOS="10"/>
+                        </controls:CanvasView.Padding>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Entry
+                                PlaceholderColor="#EDEDED"
+                                Placeholder="Direccion"
+                                TextColor="Black"
+                                Text="{Binding Address}"
+                                Grid.Column="0">
+                                <Entry.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double"
+                                        Android="18" 
+                                        iOS="20"/>
+                                </Entry.FontSize>
+                            </Entry>
+                        </Grid>
+                    </controls:CanvasView>
+                    <controls:CanvasView
+                        Elevation="2"
+                        CornerRadius="10"
+                        BackgroundColor="White">
+                        <controls:CanvasView.Padding>
+                            <OnPlatform x:TypeArguments="Thickness" 
+                                Android="10,0" 
+                                iOS="10"/>
+                        </controls:CanvasView.Padding>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Entry
+                                PlaceholderColor="#EDEDED"
+                                Placeholder="Telefono"
+                                TextColor="Black"
+                                Text="{Binding Phone}"
+                                Grid.Column="0">
+                                <Entry.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double"
+                                        Android="18" 
+                                        iOS="20"/>
+                                </Entry.FontSize>
+                            </Entry>
+                        </Grid>
+                    </controls:CanvasView>
+                    <controls:CustomButton
+                        IsCapital="False"
+                        Command="{Binding SendUserCommand}"
+                        Text="Enviar informacion"
+                        TextColor="Black"
+                        BackgroundColor="White"
+                        BorderWidth="2"
+                        BorderColor="Black"
+                        CornerRadius="0">
+                        <controls:CustomButton.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double"
+                                Android="15" 
+                                iOS="20"/>
+                        </controls:CustomButton.FontSize>
+                    </controls:CustomButton>
+                </StackLayout>
+            </ScrollView>   
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

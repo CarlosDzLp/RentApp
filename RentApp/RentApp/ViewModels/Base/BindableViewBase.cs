@@ -5,6 +5,8 @@ using System.Runtime.CompilerServices;
 using RentApp.Helpers;
 using Prism.Mvvm;
 using Prism.Navigation;
+using System.Windows.Input;
+using Prism.Commands;
 
 namespace RentApp.ViewModels.Base
 {
@@ -28,10 +30,20 @@ namespace RentApp.ViewModels.Base
         {
             NavigationService = navigationService;
             UserDialogsService = userDialogsService;
+            GoBackCommand = new DelegateCommand(GoBackCommandExecuted);
         }
         #endregion
 
+        #region Command
+        public ICommand GoBackCommand { get; set; }
+        #endregion
 
+        #region CommandExecuted
+        private void GoBackCommandExecuted()
+        {
+            NavigationService.GoBackAsync();
+        }
+        #endregion
 
         public virtual void OnNavigatedFrom(INavigationParameters parameters)  {  }
 
