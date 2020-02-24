@@ -4,10 +4,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="RentApp.Views.Session.RegisterPage"
     BackgroundColor="White"
-    xmlns:prism="http://prismlibrary.com"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
     xmlns:controls="clr-namespace:RentApp.Controls"
-    xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"    
-    prism:ViewModelLocator.AutowireViewModel="True">
+    xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"    >
     <ContentPage.Content>
         <StackLayout>
             <StackLayout
@@ -33,6 +33,7 @@
                         Margin="0,20,0,0">
                         <controls:ImageGifs
                             HeightRequest="300"
+                            Source="email_register"
                             Img="email_register"/>
                     </StackLayout>
                     <StackLayout

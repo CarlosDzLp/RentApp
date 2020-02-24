@@ -7,7 +7,7 @@ namespace RentApp.Controls
     {
         public NavigationViewPage(Page rootPage):base(rootPage)
         {
-            App.NavigationViewPage = this;
+            App.NavigationPage = this;
             BarTextColor = Color.Black;
             BarBackgroundColor = Color.White;
             IsShadow = true;
@@ -15,7 +15,7 @@ namespace RentApp.Controls
 
         public NavigationViewPage()
         {
-            App.NavigationViewPage = this;
+            App.NavigationPage = this;
             BarTextColor = Color.Black;
             BarBackgroundColor = Color.White;
             IsShadow = true;

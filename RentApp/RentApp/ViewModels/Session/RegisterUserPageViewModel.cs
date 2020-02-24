@@ -1,9 +1,6 @@
-﻿using System;
-using System.Windows.Input;
-using Prism.Commands;
-using Prism.Navigation;
-using RentApp.Helpers;
+﻿using System.Windows.Input;
 using RentApp.ViewModels.Base;
+using Xamarin.Forms;
 
 namespace RentApp.ViewModels.Session
 {
@@ -13,9 +10,9 @@ namespace RentApp.ViewModels.Session
         private string Email { get; set; }
         #endregion
         #region Constructor
-        public RegisterUserPageViewModel(INavigationService navigationService, IDialogs userDialogsService) : base(navigationService, userDialogsService)
+        public RegisterUserPageViewModel( )
         {
-            LocationCommad = new DelegateCommand(LocationCommadExecuted);
+            LocationCommad = new Command(LocationCommadExecuted);
         }
         #endregion
 
@@ -29,12 +26,5 @@ namespace RentApp.ViewModels.Session
 
         }
         #endregion
-
-
-        public override void OnNavigatedTo(INavigationParameters parameters)
-        {
-            Email = parameters["Email"] as string;
-            base.OnNavigatedTo(parameters);
-        }
     }
 }

@@ -1,20 +1,16 @@
-﻿using System;
-using System.Windows.Input;
-using Prism.Navigation;
+﻿using System.Windows.Input;
 using RentApp.Helpers;
-using Xamarin.Forms;
-using RentApp.ViewModels.Base;
-using Prism.Commands;
-using RentApp.Service;
-using RentApp.Models.Tokens;
 using RentApp.Models.Response;
+using RentApp.Models.Tokens;
+using RentApp.Service;
+using RentApp.ViewModels.Base;
 using RentApp.Views.Session;
+using Xamarin.Forms;
 
 namespace RentApp.ViewModels.Session
 {
     public class RegisterPageViewModel : BindableViewBase
     {
-        private IServiceClient ServiceClient;
         #region Properties
         private string _email;
         public string Email
@@ -47,11 +43,9 @@ namespace RentApp.ViewModels.Session
         #endregion
 
         #region Constructor
-        public RegisterPageViewModel(INavigationService navigationService, IServiceClient serviceClient , IDialogs userDialogsService) : base(navigationService, userDialogsService)
+        public RegisterPageViewModel()
         {
-            this.ServiceClient = serviceClient;
-            
-            ValidateEmailCommand = new DelegateCommand(ValidateEmailCommandExecuted);
+            ValidateEmailCommand = new Command(ValidateEmailCommandExecuted);
         }
         #endregion
 
@@ -87,33 +81,33 @@ namespace RentApp.ViewModels.Session
         
         private async void ValidateEmailCommandExecuted()
         {
+            ServiceClient client = new ServiceClient();
             if (!string.IsNullOrWhiteSpace(Email))
             {
                 var valid = ValidateEmail.IsEmail(Email);
                 if (valid)
                 {
-                    await UserDialogsService.Show("Validando datos....");
+                    Show("Validando datos....");
                     Img = "ic_done";
                     TintColor = Color.Green;
                     var validate = new AuthenticateModel();
                     validate.Email = Email;
-                    var response = await ServiceClient.Post<Response<bool>, AuthenticateModel>(validate, "user/uservalidateemail");
-                    await UserDialogsService.Hide();
+                    var response = await client.Post<Response<bool>, AuthenticateModel>(validate, "user/uservalidateemail");
+                    Hide();
                     if(response != null)
                     {
                         if(response.Result && response.Count > 0)
                         {
-                            await UserDialogsService.Snackbar($"El correo {Email} ya existe en RentApp", "Error", TypeSnackbar.Error);
+                            Snack($"El correo {Email} ya existe en RentApp", "Error", TypeSnackbar.Error);
                         }
                         else
                         {
-                            App.Email= Email;
-                            await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new ValidateUserPopup());
+                            await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new ValidateUserPopup(Email));
                         }
                     }
                     else
                     {
-                        await UserDialogsService.Snackbar("Intente mas tarde el servidor no respondio", "Error", TypeSnackbar.Error);
+                        Snack("Intente mas tarde el servidor no respondio", "Error", TypeSnackbar.Error);
                     }
                 }
                 else
@@ -125,9 +119,14 @@ namespace RentApp.ViewModels.Session
             else
             {
                 Img = string.Empty;
-                await UserDialogsService.Snackbar("Ingrese un correo", "Error", TypeSnackbar.Error);
+                Snack("Ingrese un correo", "Error", TypeSnackbar.Error);
             }
         }
         #endregion
+
+        protected override void GoBackCommandExecuted()
+        {
+            App.NavigationPage.Navigation.PopToRootAsync();
+        }
     }
 }

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Windows.Input;
-using Prism.Commands;
-using Prism.Navigation;
-using RentApp.Helpers;
+﻿using System.Windows.Input;
 using RentApp.ViewModels.Base;
 using Rg.Plugins.Popup.Services;
+using Xamarin.Forms;
 
 namespace RentApp.ViewModels.Session
 {
@@ -12,10 +9,11 @@ namespace RentApp.ViewModels.Session
     {
         private string Email { get; set; }
         #region Constructor
-        public ValidateUserPopupViewModel(INavigationService navigationService, IDialogs userDialogsService) : base(navigationService, userDialogsService)
+        public ValidateUserPopupViewModel(string email)
         {
-            ValidateUserCommand = new DelegateCommand(ValidateUserCommandExecuted);
-            ValidateAdminCommand = new DelegateCommand(ValidateAdminCommandExecuted);
+            Email = email;
+            ValidateUserCommand = new Command(ValidateUserCommandExecuted);
+            ValidateAdminCommand = new Command(ValidateAdminCommandExecuted);
         }
         #endregion
 
@@ -25,22 +23,16 @@ namespace RentApp.ViewModels.Session
         #endregion
 
         #region CommandExecuted
-        private async void ValidateAdminCommandExecuted()
+        private  void ValidateAdminCommandExecuted()
         {
-            var navParameters = new NavigationParameters();
-            navParameters.Add("Email", App.Email);
-            App.Email = string.Empty;
-            await NavigationService.NavigateAsync("RegisterAdminPage", animated: true, parameters: navParameters);
-            await PopupNavigation.Instance.PopAllAsync(true);
+            //NavigationService.NavigateAsync("/RegisterAdmin", animated: true, parameters: navParameters);
+            PopupNavigation.Instance.PopAllAsync(true);
         }
 
-        private async void ValidateUserCommandExecuted()
+        private void ValidateUserCommandExecuted()
         {
-            var navParameters = new NavigationParameters();
-            navParameters.Add("Email", App.Email);
-            App.Email = string.Empty;
-            await NavigationService.NavigateAsync("RegisterUserPage", animated: true,parameters: navParameters);
-            await PopupNavigation.Instance.PopAllAsync(true);
+            //NavigationService.NavigateAsync("/RegisterUser", animated: true,parameters: navParameters);
+            PopupNavigation.Instance.PopAllAsync(true);
         }
         #endregion
     }

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
-using Prism.Commands;
-using Prism.Navigation;
-using RentApp.Helpers;
 using RentApp.Models.Presentations;
 using RentApp.ViewModels.Base;
-using RentApp.Views.Session;
+using Xamarin.Forms;
 
 namespace RentApp.ViewModels.Presentation
 {
@@ -22,10 +18,10 @@ namespace RentApp.ViewModels.Presentation
         #endregion
 
         #region Constructor
-        public CarouselPageViewModel(INavigationService navigationService, IDialogs userDialogsService) : base(navigationService, userDialogsService)
+        public CarouselPageViewModel()
         {
             LoadCarousel();
-            GetStarted = new DelegateCommand<object>(GetStartedExecuted);
+            GetStarted = new Command<object>(GetStartedExecuted);
         }
         #endregion
 
@@ -51,7 +47,8 @@ namespace RentApp.ViewModels.Presentation
         #region CommandExecuted
         private void GetStartedExecuted(object obj)
         {
-            NavigationService.NavigateAsync(nameof(LoginPage), animated: true);
+            var nav = App.Navigation(new Views.Session.LoginPage());
+            App.Current.MainPage = nav;
         }
         #endregion
     }

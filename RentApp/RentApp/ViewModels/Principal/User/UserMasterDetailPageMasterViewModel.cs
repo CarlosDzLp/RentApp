@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using Prism.Commands;
-using Prism.Navigation;
-using RentApp.Helpers;
 using RentApp.Models.Menus;
 using RentApp.ViewModels.Base;
 using Xamarin.Forms;
@@ -23,10 +18,10 @@ namespace RentApp.ViewModels.Principal.User
         #endregion
 
         #region Constructor
-        public UserMasterDetailPageMasterViewModel(INavigationService navigationService, IDialogs userDialogsService) : base(navigationService, userDialogsService)
+        public UserMasterDetailPageMasterViewModel()
         {
             LoadMenu();
-            SelectedMenuUser = new DelegateCommand<MenusModel>(SelectedMenuUserExecuted); 
+            SelectedMenuUser = new Command<MenusModel>(SelectedMenuUserExecuted); 
         }
         #endregion
 
@@ -75,7 +70,7 @@ namespace RentApp.ViewModels.Principal.User
         #endregion
 
         #region Command
-        public DelegateCommand<MenusModel> SelectedMenuUser { get; set; }
+        public Command<MenusModel> SelectedMenuUser { get; set; }
         #endregion
 
         #region CommandExecuted

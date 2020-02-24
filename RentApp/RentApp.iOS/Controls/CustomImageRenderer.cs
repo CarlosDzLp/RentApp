@@ -18,7 +18,7 @@ namespace RentApp.iOS.Controls
                 var custom = Element as CustomImage ;
                 if(custom.IsTintColor)
                 {
-                    Control.Image = Control.Image.ImageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
+                    //Control.Image = Control.Image.ImageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
                     Control.TintColor = custom.TintColorImage.ToUIColor();
                 }
             }
@@ -32,7 +32,7 @@ namespace RentApp.iOS.Controls
             {
                 if (custom.IsTintColor)
                 {
-                    Control.Image = Control.Image.ImageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
+                    //Control.Image = Control.Image.ImageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
                     Control.TintColor = custom.TintColorImage.ToUIColor();
                 }
             } 

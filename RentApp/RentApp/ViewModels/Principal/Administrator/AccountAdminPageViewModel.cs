@@ -1,5 +1,4 @@
 ﻿using System;
-using Prism.Navigation;
 using RentApp.DataBase;
 using RentApp.Helpers;
 using RentApp.Models.Company;
@@ -27,20 +26,12 @@ namespace RentApp.ViewModels.Principal.Administrator
         #endregion
 
         #region Constructor
-        public AccountAdminPageViewModel(INavigationService navigationService, IDialogs userDialogsService) : base(navigationService, userDialogsService)
+        public AccountAdminPageViewModel()
         {
             User = DbContext.Instance.GetUser();
             Company = DbContext.Instance.GetCompany();
         }
         #endregion
 
-        public override void OnNavigatedTo(INavigationParameters parameters)
-        {
-            base.OnNavigatedTo(parameters);
-        }
-        public override void OnNavigatedFrom(INavigationParameters parameters)
-        {
-            base.OnNavigatedFrom(parameters);
-        }
     }
 }

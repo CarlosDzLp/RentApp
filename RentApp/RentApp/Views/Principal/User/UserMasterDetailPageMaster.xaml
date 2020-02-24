@@ -6,8 +6,6 @@
     x:Class="RentApp.Views.Principal.User.UserMasterDetailPageMaster"
     xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     iOS:Page.UseSafeArea="True"
-    xmlns:prism="http://prismlibrary.com"
-    prism:ViewModelLocator.AutowireViewModel="True"
     BackgroundColor="White"
     IconImageSource="ic_show"
     Title="Menu">

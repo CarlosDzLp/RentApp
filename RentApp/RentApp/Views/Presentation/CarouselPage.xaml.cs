@@ -2,6 +2,7 @@
 using FormsToolkit;
 using RentApp.Helpers;
 using RentApp.Models.Presentations;
+using RentApp.ViewModels.Presentation;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
@@ -13,11 +14,8 @@ namespace RentApp.Views.Presentation
         public CarouselPage()
         {
             InitializeComponent();
-            App.NavigationViewPage.BarTextColor = Color.White;
-            App.NavigationViewPage.BarBackgroundColor = Color.FromHex("#FF5733");
-            App.NavigationViewPage.On<iOS>().SetHideNavigationBarSeparator(true);
-            if (Device.RuntimePlatform == Device.Android)
-                Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
+            this.BindingContext = new CarouselPageViewModel();
+            Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
             TheCarousel.CurrentItemChanged += TheCarousel_CurrentItemChanged;
         }
 
@@ -29,8 +27,7 @@ namespace RentApp.Views.Presentation
             {
                 if(Device.RuntimePlatform == Device.iOS)
                 {
-                    App.NavigationViewPage.BarTextColor = Color.White;
-                    App.NavigationViewPage.BarBackgroundColor = Color.FromHex(item.ColorHex);                   
+                                       
                 }
                 else
                 {

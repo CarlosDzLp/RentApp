@@ -3,8 +3,6 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:RentApp.Controls"
-    xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-    iOS:Page.UseSafeArea="True"
     x:Class="RentApp.Views.Presentation.CarouselPage">
     <ContentPage.Content>
         <StackLayout
@@ -36,6 +34,7 @@
                                         <controls:ImageGifs
                                             VerticalOptions="Center"
                                             HeightRequest="300"
+                                            Source="{Binding Image}"
                                             Img="{Binding Image}"/>                          
                                     </StackLayout>
                                     <StackLayout

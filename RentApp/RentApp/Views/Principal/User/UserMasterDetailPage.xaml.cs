@@ -12,11 +12,11 @@ namespace RentApp.Views.Principal.User
         {
             InitializeComponent();
             App.MasterDetail = this;
-            //App.NavigationViewPage = navigationPage;
-            App.NavigationViewPage.BarBackgroundColor = Color.White;
-            App.NavigationViewPage.BarTextColor = Color.Black;
-            App.NavigationViewPage.IsShadow = true;
-            App.NavigationViewPage.On<iOS>().SetHideNavigationBarSeparator(false);
+            App.NavigationPage = navigation;
+            App.NavigationPage.BarBackgroundColor = Color.White;
+            App.NavigationPage.BarTextColor = Color.Black;
+            App.NavigationPage.IsShadow = true;
+            App.NavigationPage.On<iOS>().SetHideNavigationBarSeparator(false);
         }
     }
 }

@@ -12,6 +12,7 @@ namespace RentApp.Views.Session
         public LoginPage()
         {
             InitializeComponent();
+            this.BindingContext = new LoginPageViewModel();
             NavigationPage.SetHasNavigationBar(this, false);
         }
         protected override void OnAppearing()

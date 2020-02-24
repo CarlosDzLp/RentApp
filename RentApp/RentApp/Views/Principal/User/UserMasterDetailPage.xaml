@@ -3,8 +3,17 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="RentApp.Views.Principal.User.UserMasterDetailPage"
-    xmlns:pages="clr-namespace:RentApp.Views.Principal.User">
+    xmlns:pages="clr-namespace:RentApp.Views.Principal.User"
+    xmlns:controls="clr-namespace:RentApp.Controls">
     <MasterDetailPage.Master>
         <pages:UserMasterDetailPageMaster x:Name="MasterPage" />
     </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <controls:NavigationViewPage
+            x:Name="navigation">
+            <x:Arguments>
+                <pages:UserMasterDetailPageDetail/>
+            </x:Arguments>
+        </controls:NavigationViewPage>
+    </MasterDetailPage.Detail>
 </MasterDetailPage>

@@ -8,8 +8,6 @@ using Android.OS;
 using FormsToolkit;
 using RentApp.Helpers;
 using Plugin.CurrentActivity;
-using Prism;
-using Prism.Ioc;
 using RentApp.Droid.Helpers;
 using Android.Support.Design.Widget;
 using Android.Support.V4.App;
@@ -34,7 +32,14 @@ namespace RentApp.Droid
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
             Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            LoadApplication(new App(new AndroidInitializer()));
+            var platformConfig = new PlatformConfig
+            {
+                BitmapDescriptorFactory = new CachingNativeBitmapDescriptorFactory()
+            };
+            App.ScreenHeight = (int)(Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density);
+            App.ScreenWidth = (int)(Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Density);
+            Xamarin.FormsGoogleMaps.Init(this, savedInstanceState, platformConfig);
+            LoadApplication(new App());
             MessagingService.Current.Subscribe<MessageKeys>("StatusBar", (args, sender) =>
             {
                 if (sender.StatusBarTransparent)
@@ -76,14 +81,7 @@ namespace RentApp.Droid
                 //Debug.WriteLine("Android back button: There are not any pages in the PopupStack");
             }
         }
-        public class AndroidInitializer : IPlatformInitializer
-        {
-            public void RegisterTypes(IContainerRegistry containerRegistry)
-            {
-                containerRegistry.RegisterInstance<IDialogs>(dial);
-                containerRegistry.RegisterInstance<IBottomSheet>(bottom);
-            }
-        }
+        
 
         public void setLightStatusBar(Activity activity, Android.Graphics.Color color)
         {

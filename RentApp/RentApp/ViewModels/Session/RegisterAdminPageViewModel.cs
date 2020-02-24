@@ -1,7 +1,4 @@
-﻿using System;
-using Prism.Commands;
-using Prism.Navigation;
-using RentApp.Helpers;
+﻿using RentApp.Helpers;
 using RentApp.ViewModels.Base;
 using RentApp.Views.Session;
 using Xamarin.Forms;
@@ -10,7 +7,6 @@ namespace RentApp.ViewModels.Session
 {
     public class RegisterAdminPageViewModel : BindableViewBase
     {
-        IBottomSheet bottomSheet;
         #region Properties
         private string Email { get; set; }
         private byte[] _photo;
@@ -22,17 +18,16 @@ namespace RentApp.ViewModels.Session
         #endregion
 
         #region Constructor
-        public RegisterAdminPageViewModel(INavigationService navigationService,IBottomSheet bottomSheet ,IDialogs userDialogsService) : base(navigationService, userDialogsService)
+        public RegisterAdminPageViewModel( )
         {
-            this.bottomSheet = bottomSheet;
-            LoadPhotoCommand = new DelegateCommand(LoadPhotoCommandExecuted);
-            LocationCommad = new DelegateCommand(LocationCommadExecuted);
+            LoadPhotoCommand = new Command(LoadPhotoCommandExecuted);
+            LocationCommad = new Command(LocationCommadExecuted);
         }
         #endregion
 
         #region Command
-        public DelegateCommand LoadPhotoCommand { get; set; }
-        public DelegateCommand LocationCommad { get; set; }
+        public Command LoadPhotoCommand { get; set; }
+        public Command LocationCommad { get; set; }
         #endregion
 
 
@@ -41,7 +36,7 @@ namespace RentApp.ViewModels.Session
         {
             if (Device.RuntimePlatform == Device.Android)
             {
-                var result = await bottomSheet.Bottom();
+                var result =  await BottomSheet();
                 if(!string.IsNullOrWhiteSpace(result))
                 {
                     if(result == "Galeria")
@@ -100,14 +95,10 @@ namespace RentApp.ViewModels.Session
         }
         private void LocationCommadExecuted()
         {
-            NavigationService.NavigateAsync(nameof(LocationPage), useModalNavigation: true, animated: true);
+            //NavigationService.NavigateAsync(nameof(LocationPage), useModalNavigation: true, animated: true);
         }
         #endregion
 
-        public override void OnNavigatedTo(INavigationParameters parameters)
-        {
-            Email = parameters["Email"] as string;
-            base.OnNavigatedTo(parameters);
-        }
+        
     }
 }

@@ -3,10 +3,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="RentApp.Views.Session.RegisterAdminPage"
-    xmlns:prism="http://prismlibrary.com"
     xmlns:controls="clr-namespace:RentApp.Controls"
     xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"    
-    prism:ViewModelLocator.AutowireViewModel="True"
     BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout>
