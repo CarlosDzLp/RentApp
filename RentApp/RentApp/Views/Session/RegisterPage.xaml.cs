@@ -9,9 +9,17 @@ namespace RentApp.Views.Session
     {
         public RegisterPage()
         {
-            InitializeComponent();
-            this.BindingContext = new RegisterPageViewModel();
-            NavigationPage.SetHasNavigationBar(this, false);
+            try
+            {
+                InitializeComponent();
+                this.BindingContext = new RegisterPageViewModel();
+                NavigationPage.SetHasNavigationBar(this, false);
+            }
+            catch(Exception ex)
+            {
+
+            }
+
         }
     }
 }

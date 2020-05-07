@@ -101,10 +101,10 @@
                         IsCapital="False"
                         Command="{Binding LogInCommand}"
                         Text="Iniciar Sesion"
-                        TextColor="Black"
+                        TextColor="#F4364C"
                         BackgroundColor="White"
                         BorderWidth="2"
-                        BorderColor="Black"
+                        BorderColor="#F4364C"
                         CornerRadius="0">
                         <controls:CustomButton.FontSize>
                             <OnPlatform x:TypeArguments="x:Double"
@@ -119,7 +119,7 @@
                     <Label
                         TextDecorations="Underline"
                         FontSize="Default"
-                        TextColor="Black"
+                        TextColor="#F4364C"
                         Text="Olvido contraseña?"/>
                 </StackLayout>
                 <StackLayout>
@@ -131,17 +131,33 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <controls:CanvasView
-                            BorderColor="Black"
+                            BorderColor="#3b5998"
                             Grid.Column="0"
                             Elevation="2"
                             BorderDrawingStyle="Inside"
                             BorderThickness="1"
-                            Padding="15,10"
+                            Padding="15,15"
                             CornerRadius="8"
-                            BackgroundColor="White">
-                            <Image
-                                HeightRequest="30"                
-                                Source="facebook"/>
+                            BackgroundColor="#3b5998">
+                            <Grid
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <controls:CustomImage
+                                    Grid.Column="0"
+                                        IsTintColor="True"
+                                        TintColorImage="White"
+                                        HeightRequest="20"                
+                                        Source="facebook"/>
+                                <Label
+                                    VerticalOptions="Center"
+                                    Grid.Column="1"
+                                    TextColor="White"
+                                    Text="Facebook"/>
+                            </Grid>                           
                         </controls:CanvasView>
                         <controls:CanvasView
                             BorderDrawingStyle="Inside"
@@ -152,9 +168,24 @@
                             Padding="15,10"
                             CornerRadius="8"
                             BackgroundColor="White">
-                            <Image
-                                HeightRequest="30"                
-                                Source="facebook"/>
+                            <Grid
+                                HorizontalOptions="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <controls:CustomImage
+                                    Grid.Column="0"
+                                        IsTintColor="True"
+                                        TintColorImage="Black"
+                                        HeightRequest="20"                
+                                        Source="facebook"/>
+                                <Label
+                                    VerticalOptions="Center"
+                                    Grid.Column="1"
+                                    TextColor="Black"
+                                    Text="Google"/>
+                            </Grid> 
                         </controls:CanvasView>
                     </Grid>
                 </StackLayout>
@@ -195,13 +226,12 @@
                     <Label
                         FontSize="Default"
                         TextColor="Black"
-                        Text="Registrate"/>
+                        Text="¿Nuevo?"/>
                     <Label
                         FontSize="Default"
-                        TextDecorations="Underline"
                         FontAttributes="Bold"
                         TextColor="#F4364C"
-                        Text="Haz click aqui">
+                        Text="Registrate Aqui">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding ValidateUserRegisterCommand}"/>
                         </Label.GestureRecognizers>

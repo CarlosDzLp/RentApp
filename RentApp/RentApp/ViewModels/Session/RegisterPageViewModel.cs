@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using RentApp.Helpers;
 using RentApp.Models.Response;
 using RentApp.Models.Tokens;
@@ -126,7 +127,14 @@ namespace RentApp.ViewModels.Session
 
         protected override void GoBackCommandExecuted()
         {
-            App.NavigationPage.Navigation.PopToRootAsync();
+            try
+            {
+                App.NavigationPage.Navigation.PopToRootAsync();
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
     }
 }

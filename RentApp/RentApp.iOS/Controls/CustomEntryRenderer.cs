@@ -12,10 +12,13 @@ namespace RentApp.iOS.Controls
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
             base.OnElementChanged(e);
-            Control.Layer.CornerRadius = 0;
-            Control.BorderStyle = UIKit.UITextBorderStyle.None;
-            Control.Layer.BorderWidth = 0;
-            Control.ClipsToBounds = false;
+            if(e.NewElement != null)
+            {
+                Control.Layer.CornerRadius = 0;
+                Control.BorderStyle = UIKit.UITextBorderStyle.None;
+                Control.Layer.BorderWidth = 0;
+                Control.ClipsToBounds = false;
+            }
         }
     }
 }

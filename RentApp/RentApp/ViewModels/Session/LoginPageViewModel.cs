@@ -136,7 +136,15 @@ namespace RentApp.ViewModels.Session
 
         private void ValidateUserRegisterCommandExecuted()
         {
-            App.NavigationPage.Navigation.PushAsync(new Views.Session.RegisterPage());
+            try
+            {
+                App.NavigationPage.Navigation.PushAsync(new Views.Session.RegisterPage());
+            }
+            catch(Exception ex)
+            {
+
+            }
+            
             //NavigationService.NavigateAsync("/Register");
             //await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new ValidateUserPopup());
         }
