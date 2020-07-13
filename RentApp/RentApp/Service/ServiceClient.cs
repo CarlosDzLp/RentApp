@@ -12,29 +12,22 @@ namespace RentApp.Service
 {
     public class ServiceClient : IServiceClient
     {
-        public async Task<T> Delete<T>(string url)
+        public async Task<T> Delete<T>(string url, string token = null)
         {
             try
             {
-                var token = await DbContext.Instance.GettToken();
-                if(token==null)
-                    await Authenticate();
                 T deserializer = default(T);
                 HttpClient client = new HttpClient();
                 var urltype = Settings.URL + url;
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.Token);
+                if (!string.IsNullOrWhiteSpace(token))
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 var response = await client.DeleteAsync(urltype);
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     var responseString = await response.Content.ReadAsStringAsync();
                     deserializer = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(responseString);
                 }
-                else if (response.StatusCode == HttpStatusCode.Unauthorized)
-                {
-                    await Authenticate();
-                    await Delete<T>(url);
-                }
                 return deserializer;
             }
             catch (Exception ex)
@@ -43,32 +36,22 @@ namespace RentApp.Service
             }
         }
 
-        public async Task<T> Get<T>(string url)
+        public async Task<T> Get<T>(string url, string token = null)
         {
             try
             {
-                var token = await DbContext.Instance.GettToken();
-                if (token == null)
-                {
-                    await Authenticate();
-                    token = await DbContext.Instance.GettToken();
-                }                   
                 T deserializer = default(T);
                 HttpClient client = new HttpClient();
                 var urlType = Settings.URL + url;
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.Token);
+                if (!string.IsNullOrWhiteSpace(token))
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 var response = await client.GetAsync(urlType);
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     var responseString = await response.Content.ReadAsStringAsync();
                     deserializer = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(responseString);
                 }
-                else if (response.StatusCode == HttpStatusCode.Unauthorized)
-                {
-                    await Authenticate();
-                    await Get<T>(url);
-                }
                 return deserializer;
             }
             catch (Exception ex)
@@ -77,33 +60,22 @@ namespace RentApp.Service
             }
         }
 
-        public async Task<T> Post<T, K>(K deserialice, string url)
+        public async Task<T> Post<T>(string deserialice, string url, string token = null)
         {
             try
             {
-                var token = await DbContext.Instance.GettToken();
-                if (token == null)
-                {
-                    await Authenticate();
-                    token = await DbContext.Instance.GettToken();
-                }
                 T deserializer = default(T);
-                var serializer = Newtonsoft.Json.JsonConvert.SerializeObject(deserialice);
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(Settings.URL);
-                HttpContent content = new StringContent(serializer, Encoding.UTF8, "application/json");
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.Token);
+                HttpContent content = new StringContent(deserialice, Encoding.UTF8, "application/json");
+                if (!string.IsNullOrWhiteSpace(token))
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 var response = await client.PostAsync(url, content);
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     var responseString = await response.Content.ReadAsStringAsync();
                     deserializer = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(responseString);
                 }
-                else if (response.StatusCode == HttpStatusCode.Unauthorized)
-                {
-                    await Authenticate();
-                    await Post<T,K>(deserialice,url);
-                }
                 return deserializer;
             }
             catch (Exception ex)
@@ -112,32 +84,21 @@ namespace RentApp.Service
             }
         }
 
-        public async Task<T> Put<T, K>(K deserialice, string url)
+        public async Task<T> Put<T>(string deserialice, string url, string token = null)
         {
             try
             {
-                var token = await DbContext.Instance.GettToken();
-                if (token == null)
-                {
-                    await Authenticate();
-                    token = await DbContext.Instance.GettToken();
-                }
                 T deserializer = default(T);
-                var serializer = Newtonsoft.Json.JsonConvert.SerializeObject(deserialice);
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(Settings.URL);
-                HttpContent content = new StringContent(serializer, Encoding.UTF8, "application/json");
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.Token);
+                HttpContent content = new StringContent(deserialice, Encoding.UTF8, "application/json");
+                if(!string.IsNullOrWhiteSpace(token))
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 var response = await client.PutAsync(url, content);
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     var responseString = await response.Content.ReadAsStringAsync();
                     deserializer = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(responseString);
-                }
-                else if (response.StatusCode == HttpStatusCode.Unauthorized)
-                {
-                    await Authenticate();
-                    await Put<T, K>(deserialice, url);
                 }
                 return deserializer;
             }
@@ -153,14 +114,14 @@ namespace RentApp.Service
             {
                 var tokenModel = new AuthenticateModel
                 {
-                    Email = "ryankar90@hotmail.com",
+                    User = "ryankar90@hotmail.com",
                     Password = "carlosdiaz90#"
                 };
                 var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(tokenModel);
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(Settings.URL);
                 HttpContent content = new StringContent(jsonString, Encoding.UTF8, "application/json");
-                var response = await client.PostAsync("authenticate/aouth", content);
+                var response = await client.PostAsync("authenticate/auth", content);
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     var responseString = await response.Content.ReadAsStringAsync();
@@ -170,7 +131,7 @@ namespace RentApp.Service
             }
             catch (Exception ex)
             {
-                
+
             }
         }
     }

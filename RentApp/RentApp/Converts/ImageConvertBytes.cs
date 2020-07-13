@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
+using RentApp.Font;
 using Xamarin.Forms;
 
 namespace RentApp.Converts
@@ -18,7 +19,7 @@ namespace RentApp.Converts
             }
             else
             {
-                return "picture";
+                return "user";
             }
         }
 

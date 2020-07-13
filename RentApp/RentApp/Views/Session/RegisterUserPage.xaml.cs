@@ -7,11 +7,10 @@ namespace RentApp.Views.Session
 {
     public partial class RegisterUserPage : ContentPage
     {
-        public RegisterUserPage()
+        public RegisterUserPage(string email)
         {
             InitializeComponent();
-            this.BindingContext = new RegisterUserPageViewModel();
-            NavigationPage.SetHasNavigationBar(this, false);
+            this.BindingContext = new RegisterUserPageViewModel(email);
         }
     }
 }

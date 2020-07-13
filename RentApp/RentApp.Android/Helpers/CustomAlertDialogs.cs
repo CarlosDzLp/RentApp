@@ -1,7 +1,6 @@
 ﻿using Android.Support.V7.App;
 using Android.Widget;
 using Plugin.CurrentActivity;
-using Felipecsl.GifImageViewLibrary;
 using System.IO;
 
 namespace RentApp.Droid.Helpers
@@ -23,14 +22,14 @@ namespace RentApp.Droid.Helpers
                 textMessage.Text = (!string.IsNullOrWhiteSpace(message)) ? message : string.Empty;
                 textMessage.SetTextColor(colorText);
             }
-            var imageView = view.FindViewById<GifImageView>(Resource.Id.gifImageView);
-            if (imageView != null)
-            {
-                Stream input = CrossCurrentActivity.Current.Activity.Resources.OpenRawResource(Resource.Drawable.loading);
-                byte[] bytes = ConvertByteArray(input);
-                imageView.SetBytes(bytes);
-                imageView.StartAnimation();
-            }
+            //var imageView = view.FindViewById<GifImageView>(Resource.Id.gifImageView);
+            //if (imageView != null)
+            //{
+            //    Stream input = CrossCurrentActivity.Current.Activity.Resources.OpenRawResource(Resource.Drawable.loading);
+            //    byte[] bytes = ConvertByteArray(input);
+            //    imageView.SetBytes(bytes);
+            //    imageView.StartAnimation();
+            //}
             dialog.SetView(view);
             dialog.SetCancelable(false);
             Adialog = dialog.Create();

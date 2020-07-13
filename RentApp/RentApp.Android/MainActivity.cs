@@ -18,8 +18,6 @@ namespace RentApp.Droid
     [Activity(Label = "RentApp", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        static Dialogs dial = new Dialogs();
-        static BottomSheetDroid bottom = new BottomSheetDroid();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -32,13 +30,13 @@ namespace RentApp.Droid
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
             Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            var platformConfig = new PlatformConfig
-            {
-                BitmapDescriptorFactory = new CachingNativeBitmapDescriptorFactory()
-            };
+            //var platformConfig = new PlatformConfig
+            //{
+            //    BitmapDescriptorFactory = new CachingNativeBitmapDescriptorFactory()
+            //};
             App.ScreenHeight = (int)(Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density);
             App.ScreenWidth = (int)(Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Density);
-            Xamarin.FormsGoogleMaps.Init(this, savedInstanceState, platformConfig);
+            //Xamarin.FormsGoogleMaps.Init(this, savedInstanceState, platformConfig);
             LoadApplication(new App());
             MessagingService.Current.Subscribe<MessageKeys>("StatusBar", (args, sender) =>
             {

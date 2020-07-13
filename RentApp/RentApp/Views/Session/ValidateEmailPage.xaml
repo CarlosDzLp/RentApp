@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:RentApp.Controls"
+    x:Class="RentApp.Views.Session.ValidateEmailPage"
+    BackgroundColor="White"
+    Title="Registro">
+    <ContentPage.Content>
+        <Grid
+            VerticalOptions="FillAndExpand">
+            <StackLayout>
+                <Label
+                    Margin="30,20,30,0"
+                    FontSize="20"
+                    TextColor="Black"
+                    Text="Ingrese un correo"/>
+                <controls:CanvasView
+                            Margin="30,0"
+                            Elevation="2"
+                            CornerRadius="0"
+                            BackgroundColor="#EDF0F8">
+                            <controls:CanvasView.Padding>
+                                <OnPlatform x:TypeArguments="Thickness" 
+                                    Android="10,0" 
+                                    iOS="10"/>
+                            </controls:CanvasView.Padding>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Entry
+                                    PlaceholderColor="Gray"
+                                    Placeholder="Correo"
+                                    TextColor="Black"
+                                    x:Name="entryemail"
+                                    Text="{Binding Email}"
+                                    Grid.Column="0">
+                                    <Entry.FontSize>
+                                        <OnPlatform x:TypeArguments="x:Double"
+                                            Android="18" 
+                                            iOS="20"/>
+                                    </Entry.FontSize>
+                                </Entry>
+                                <Image
+                                    Grid.Column="1">
+                                    <Image.Source>
+                                        <FontImageSource
+                                            FontFamily="Solid"
+                                            Size="20"
+                                            Color="{Binding TintColor}"
+                                            Glyph="{Binding Img}"/>
+                                    </Image.Source>
+                                </Image>                               
+                            </Grid>
+                        </controls:CanvasView>
+                <controls:CustomButton
+                            IsCapital="False"
+                            Command="{Binding ValidateEmailCommand}"
+                            Text="Iniciar Sesion"
+                            TextColor="White"
+                            HeightRequest="60"
+                            VerticalOptions="EndAndExpand"
+                            BackgroundColor="#F4364C"
+                            CornerRadius="0">
+                            <controls:CustomButton.FontSize>
+                                <OnPlatform x:TypeArguments="x:Double"
+                                    Android="15" 
+                                    iOS="20"/>
+                            </controls:CustomButton.FontSize>
+                </controls:CustomButton>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

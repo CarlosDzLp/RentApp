@@ -7,7 +7,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using Xamarin.Forms.Platform.Android.AppCompat;
 
-[assembly: ExportRenderer(typeof(NavigationViewPage), typeof(CustonNavigationPageRenderer))]
+//[assembly: ExportRenderer(typeof(NavigationPage), typeof(CustonNavigationPageRenderer))]
 namespace RentApp.Droid.Controls
 {
     public class CustonNavigationPageRenderer : NavigationPageRenderer
@@ -15,10 +15,10 @@ namespace RentApp.Droid.Controls
         public CustonNavigationPageRenderer(Context context) : base(context)
         {
         }
-        private NavigationViewPage navigationview;
+        private NavigationPage navigationview;
         protected override void OnElementChanged(ElementChangedEventArgs<NavigationPage> e)
         {
-            navigationview = (NavigationViewPage)e.NewElement;
+            navigationview = (NavigationPage)e.NewElement;
             base.OnElementChanged(e);
         }
 
@@ -31,12 +31,12 @@ namespace RentApp.Droid.Controls
 
             if (child.GetType() == typeof(Android.Support.V7.Widget.Toolbar))
             {
-                _toolbar = (Android.Support.V7.Widget.Toolbar)child;
-                if(navigationview.IsShadow)
-                {
-                    _toolbar.SetElevation(10);
-                    _toolbar.Elevation = 10;
-                } 
+                //_toolbar = (Android.Support.V7.Widget.Toolbar)child;
+                //if(navigationview.IsShadow)
+                //{
+                    //_toolbar.SetElevation(10);
+                    //_toolbar.Elevation = 10;
+                //} 
             }
         } 
     }

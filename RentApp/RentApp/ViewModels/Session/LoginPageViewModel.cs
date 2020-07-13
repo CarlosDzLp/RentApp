@@ -1,50 +1,35 @@
 ﻿using System;
 using System.Windows.Input;
-using RentApp.DataBase;
-using RentApp.Helpers;
-using RentApp.Models.Company;
-using RentApp.Models.Response;
-using RentApp.Models.Tokens;
-using RentApp.Models.Users;
-using RentApp.Service;
+using RentApp.Font;
 using RentApp.ViewModels.Base;
 using Xamarin.Forms;
 
 namespace RentApp.ViewModels.Session
 {
-    public class LoginPageViewModel : BindableViewBase
+    public class LoginPageViewModel : BindableBase
     {
         #region Properties
-        private string _email;
-        public string Email
-        {
-            get { return _email; }
-            set { SetProperty(ref _email, value); }
-        }
-        private bool _isPassword = true;
-        public bool IsPassword
-        {
-            get { return _isPassword; }
-            set { SetProperty(ref _isPassword, value); }
-        }
-        private string _password;
-        public string Password
-        {
-            get { return _password; }
-            set { SetProperty(ref _password, value); }
-        }
-        private string _img = "ic_show";
-        public string Img
-        {
-            get { return _img; }
-            set { SetProperty(ref _img, value); }
-        }
+        public string Email { get; set; }
+
+        public bool IsPassword { get; set; } = true;
+
+        public string Password { get; set; }
+
+
+        public ImageSource Img { get; set; }
 
         #endregion
 
         #region Constructor
         public LoginPageViewModel( )
         {
+            Img = new FontImageSource()
+            {
+                FontFamily = "Solid",
+                Size = 20,
+                Color = Color.Black,
+                Glyph = FontAwesomeIcons.Show
+            };
             TapImgCommand = new Command(TapImgCommandExecuted);
             LogInCommand = new Command(LogInCommandExecuted);
             ValidateUserRegisterCommand = new Command(ValidateUserRegisterCommandExecuted);
@@ -70,13 +55,25 @@ namespace RentApp.ViewModels.Session
             if(band == 0)
             {
                 IsPassword = false;
-                Img = "ic_hide";
+                Img = new FontImageSource()
+                {
+                    FontFamily = "Solid",
+                    Size = 20,
+                    Color = Color.Black,
+                    Glyph = FontAwesomeIcons.Hide
+                };
                 band = 1;
             }
             else
             {
                 IsPassword = true;
-                Img = "ic_show";
+                Img = new FontImageSource()
+                {
+                    FontFamily = "Solid",
+                    Size = 20,
+                    Color = Color.Black,
+                    Glyph = FontAwesomeIcons.Show
+                };
                 band = 0;
             }
         }
@@ -85,48 +82,48 @@ namespace RentApp.ViewModels.Session
         {
             try
             {
-                ServiceClient client = new ServiceClient();
-                Show("Cargando...");
-                var authenticate = new AuthenticateModel();
-                authenticate.Email = Email;
-                authenticate.Password = Password;
-                var response = await client.Post<Response<UserModel>, AuthenticateModel>(authenticate,"user/userlogin");
-                Hide();
-                if(response != null)
-                {
-                    if(response.Result != null && response.Count > 0 )
-                    {
-                        DbContext.Instance.InsertUser(response.Result);
-                        if(response.Result.Type==0)
-                        {
-                            //usuario normal
-                            //await NavigationService.NavigateAsync("/MasterDetailUser/Navigation/HomeUser");
-                        }
-                        else
-                        {
-                            //arrendatario
-                            var responseCompany = await client.Get<Response<CompanyModel>>($"user/companylogin?IdCompany={response.Result.IdUser}");
-                            if(responseCompany != null && responseCompany.Result != null && responseCompany.Count > 0)
-                            {
-                                DbContext.Instance.InsertCompany(responseCompany.Result);
-                                //navegga a la pagina principal
-                                //await NavigationService.NavigateAsync("/MasterAdmin");
-                            }
-                            else
-                            {
-                                //await UserDialogsService.Snackbar("Hubo un error al conectar con el servidor, intente mas tarde", "", TypeSnackbar.Error);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        //await UserDialogsService.Snackbar(response.Message, "", TypeSnackbar.Error);
-                    }
-                }
-                else
-                {
-                    Snack("Hubo un error al conectar con el servidor, intente mas tarde", "", TypeSnackbar.Error);
-                }
+                //ServiceClient client = new ServiceClient();
+                //Show("Cargando...");
+                //var authenticate = new AuthenticateModel();
+                //authenticate.Email = Email;
+                //authenticate.Password = Password;
+                //var response = await client.Post<Response<UserModel>, AuthenticateModel>(authenticate,"user/userlogin");
+                //Hide();
+                //if(response != null)
+                //{
+                //    if(response.Result != null && response.Count > 0 )
+                //    {
+                //        DbContext.Instance.InsertUser(response.Result);
+                //        if(response.Result.Type==0)
+                //        {
+                //            //usuario normal
+                //            //await NavigationService.NavigateAsync("/MasterDetailUser/Navigation/HomeUser");
+                //        }
+                //        else
+                //        {
+                //            //arrendatario
+                //            var responseCompany = await client.Get<Response<CompanyModel>>($"user/companylogin?IdCompany={response.Result.IdUser}");
+                //            if(responseCompany != null && responseCompany.Result != null && responseCompany.Count > 0)
+                //            {
+                //                DbContext.Instance.InsertCompany(responseCompany.Result);
+                //                //navegga a la pagina principal
+                //                //await NavigationService.NavigateAsync("/MasterAdmin");
+                //            }
+                //            else
+                //            {
+                //                //await UserDialogsService.Snackbar("Hubo un error al conectar con el servidor, intente mas tarde", "", TypeSnackbar.Error);
+                //            }
+                //        }
+                //    }
+                //    else
+                //    {
+                //        //await UserDialogsService.Snackbar(response.Message, "", TypeSnackbar.Error);
+                //    }
+                //}
+                //else
+                //{
+                //    Snack("Hubo un error al conectar con el servidor, intente mas tarde", "", TypeSnackbar.Error);
+                //}
             }
             catch(Exception ex)
             {
@@ -138,7 +135,7 @@ namespace RentApp.ViewModels.Session
         {
             try
             {
-                App.NavigationPage.Navigation.PushAsync(new Views.Session.RegisterPage());
+                App.NavigationPage.Navigation.PushAsync(new Views.Session.ValidateEmailPage());
             }
             catch(Exception ex)
             {

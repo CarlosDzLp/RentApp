@@ -22,11 +22,8 @@ namespace RentApp.Droid.Controls
             if (e.NewElement == null) return;
 
             var custom = (CustomImage) e.NewElement;
-            if(custom.IsTintColor)
-            {
-                var filter = new PorterDuffColorFilter(custom.TintColorImage.ToAndroid(), PorterDuff.Mode.SrcIn);
-                Control.SetColorFilter(filter);
-            }           
+            var filter = new PorterDuffColorFilter(custom.TintColorImage.ToAndroid(), PorterDuff.Mode.SrcIn);
+            Control.SetColorFilter(filter); 
         }
 
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -36,11 +33,8 @@ namespace RentApp.Droid.Controls
 
             if (e.PropertyName == CustomImage.TintColorImageProperty.PropertyName)
             {
-                if (custom.IsTintColor)
-                {
-                    var filter = new PorterDuffColorFilter(custom.TintColorImage.ToAndroid(), PorterDuff.Mode.SrcIn);
-                    Control.SetColorFilter(filter);
-                }
+                var filter = new PorterDuffColorFilter(custom.TintColorImage.ToAndroid(), PorterDuff.Mode.SrcIn);
+                Control.SetColorFilter(filter);
             }
         }
     }

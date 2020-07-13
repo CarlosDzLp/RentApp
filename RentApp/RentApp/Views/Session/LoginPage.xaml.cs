@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using FormsToolkit;
+﻿using FormsToolkit;
 using RentApp.Helpers;
 using RentApp.ViewModels.Session;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace RentApp.Views.Session
 {
@@ -13,12 +12,13 @@ namespace RentApp.Views.Session
         {
             InitializeComponent();
             this.BindingContext = new LoginPageViewModel();
-            NavigationPage.SetHasNavigationBar(this, false);
+            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(false);
+            Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, true);
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            MessagingService.Current.SendMessage<MessageKeys>("StatusBar", new MessageKeys { StatusBarTransparent = true, ColorHex = "#0CB392" });
+            MessagingService.Current.SendMessage<MessageKeys>("StatusBar", new MessageKeys { StatusBarTransparent = false, ColorHex = "#F4364C" });
         }
         protected override void OnDisappearing()
         {

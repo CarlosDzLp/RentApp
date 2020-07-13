@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
+using RentApp.Font;
 using Xamarin.Forms;
 
 namespace RentApp.Converts
@@ -16,7 +17,14 @@ namespace RentApp.Converts
             }
             else
             {
-                return "picture";
+                ImageSource image = new FontImageSource()
+                {
+                    FontFamily = "Solid",
+                    Size = 20,
+                    Color = Color.Black,
+                    Glyph = FontAwesomeIcons.User
+                };
+                return image;
             }
         }
 

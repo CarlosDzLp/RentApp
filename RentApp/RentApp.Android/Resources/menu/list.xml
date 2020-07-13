@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/galery" android:icon="@drawable/photo" android:title="Galeria"/>
-    <item android:id="@+id/camera" android:icon="@drawable/camera" android:title="Camara"/>
-</menu>

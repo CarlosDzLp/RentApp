@@ -4,240 +4,277 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:RentApp.Controls"
     x:Class="RentApp.Views.Session.LoginPage"
+    xmlns:font="clr-namespace:RentApp.Font"
+    NavigationPage.BackButtonTitle=""
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-    ios:Page.UseSafeArea="true"
+    ios:Page.UseSafeArea="True"
     BackgroundColor="White">
     <ContentPage.Content>
         <ScrollView
             VerticalScrollBarVisibility="Never">
-            <StackLayout
-                VerticalOptions="Center">
-                <StackLayout>
-                    <Image
-                        Source="logo"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <StackLayout
+                    BackgroundColor="#F4364C"
+                    Grid.Row="0">
+                    <StackLayout
+                        VerticalOptions="CenterAndExpand">
+                        <Image
+                            HeightRequest="100"
+                            Source="rentapp.jpg"/>
+                    </StackLayout>                    
                 </StackLayout>
                 <StackLayout
-                    Padding="30,0">
-                    <controls:CanvasView
-                        Elevation="2"
-                        CornerRadius="10"
-                        BackgroundColor="White">
-                        <controls:CanvasView.Padding>
-                            <OnPlatform x:TypeArguments="Thickness" 
-                                Android="10,0" 
-                                iOS="10"/>
-                        </controls:CanvasView.Padding>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Image
-                                Grid.Column="0"
-                                Source="ic_email"/>
-                            <Entry
-                                PlaceholderColor="#EDEDED"
-                                Placeholder="Correo"
-                                TextColor="Black"
-                                Text="{Binding Email}"
-                                Grid.Column="1">
-                                <Entry.FontSize>
-                                    <OnPlatform x:TypeArguments="x:Double"
-                                        Android="18" 
-                                        iOS="20"/>
-                                </Entry.FontSize>
-                            </Entry>
-                        </Grid>
-                    </controls:CanvasView>
-                </StackLayout>
-                <StackLayout
-                    Margin="0,10"
-                    Padding="30,0">
-                    <controls:CanvasView
-                        Elevation="2"
-                        CornerRadius="10"
-                        BackgroundColor="White">
-                        <controls:CanvasView.Padding>
-                            <OnPlatform x:TypeArguments="Thickness" 
-                                Android="10,0" 
-                                iOS="10"/>
-                        </controls:CanvasView.Padding>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Image
-                                Grid.Column="0"
-                                Source="ic_password"/>
-                            <Entry
-                                IsPassword="{Binding IsPassword}"
-                                PlaceholderColor="#EDEDED"
-                                Placeholder="Contraseña"
-                                TextColor="Black"
-                                Text="{Binding Password}"
-                                Grid.Column="1">
-                                <Entry.FontSize>
-                                    <OnPlatform x:TypeArguments="x:Double"
-                                        Android="18" 
-                                        iOS="20"/>
-                                </Entry.FontSize>
-                            </Entry>
-                            <Image
-                                Grid.Column="2"
-                                Source="{Binding Img}">
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding TapImgCommand}"/>
-                                </Image.GestureRecognizers>
-                            </Image>
-                        </Grid>
-                    </controls:CanvasView>
-                </StackLayout>
-                <StackLayout
-                    Margin="0,10"
-                    Padding="30,0">
-                    <controls:CustomButton
-                        IsCapital="False"
-                        Command="{Binding LogInCommand}"
-                        Text="Iniciar Sesion"
-                        TextColor="#F4364C"
-                        BackgroundColor="White"
-                        BorderWidth="2"
-                        BorderColor="#F4364C"
-                        CornerRadius="0">
-                        <controls:CustomButton.FontSize>
-                            <OnPlatform x:TypeArguments="x:Double"
-                                Android="15" 
-                                iOS="20"/>
-                        </controls:CustomButton.FontSize>
-                    </controls:CustomButton>
-                </StackLayout>
-                <StackLayout
-                    Padding="0,0,30,30"
-                    HorizontalOptions="End">
-                    <Label
-                        TextDecorations="Underline"
-                        FontSize="Default"
-                        TextColor="#F4364C"
-                        Text="Olvido contraseña?"/>
-                </StackLayout>
-                <StackLayout>
-                    <Grid
-                        Padding="30,0,30,30"
-                        ColumnSpacing="20">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                    Padding="0,20,0,0"
+                    Grid.Row="1">
+                    <StackLayout
+                        Padding="30,0">
                         <controls:CanvasView
-                            BorderColor="#3b5998"
-                            Grid.Column="0"
                             Elevation="2"
-                            BorderDrawingStyle="Inside"
-                            BorderThickness="1"
-                            Padding="15,15"
-                            CornerRadius="8"
-                            BackgroundColor="#3b5998">
-                            <Grid
-                                HorizontalOptions="Center"
-                                VerticalOptions="Center">
+                            CornerRadius="10"
+                            BackgroundColor="#EDF0F8">
+                            <controls:CanvasView.Padding>
+                                <OnPlatform x:TypeArguments="Thickness" 
+                                    Android="10,0" 
+                                    iOS="10"/>
+                            </controls:CanvasView.Padding>
+                            <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <controls:CustomImage
-                                    Grid.Column="0"
-                                        IsTintColor="True"
-                                        TintColorImage="White"
-                                        HeightRequest="20"                
-                                        Source="facebook"/>
-                                <Label
-                                    VerticalOptions="Center"
-                                    Grid.Column="1"
-                                    TextColor="White"
-                                    Text="Facebook"/>
-                            </Grid>                           
-                        </controls:CanvasView>
-                        <controls:CanvasView
-                            BorderDrawingStyle="Inside"
-                            BorderThickness="1"
-                            BorderColor="Black"
-                            Grid.Column="1"
-                            Elevation="2"
-                            Padding="15,10"
-                            CornerRadius="8"
-                            BackgroundColor="White">
-                            <Grid
-                                HorizontalOptions="Center">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <controls:CustomImage
-                                    Grid.Column="0"
-                                        IsTintColor="True"
-                                        TintColorImage="Black"
-                                        HeightRequest="20"                
-                                        Source="facebook"/>
-                                <Label
-                                    VerticalOptions="Center"
-                                    Grid.Column="1"
+                                <Image
+                                    Grid.Column="0">
+                                    <Image.Source>
+                                        <FontImageSource
+                                            Size="20"
+                                            Color="Black"
+                                            Glyph="{x:Static font:FontAwesomeIcons.User}"
+                                            FontFamily="Solid"/>
+                                    </Image.Source>
+                                </Image>
+                                <Entry
+                                    PlaceholderColor="Gray"
+                                    Placeholder="Correo"
                                     TextColor="Black"
-                                    Text="Google"/>
-                            </Grid> 
+                                    Text="{Binding Email}"
+                                    Grid.Column="1">
+                                    <Entry.FontSize>
+                                        <OnPlatform x:TypeArguments="x:Double"
+                                            Android="18" 
+                                            iOS="20"/>
+                                    </Entry.FontSize>
+                                </Entry>
+                            </Grid>
                         </controls:CanvasView>
-                    </Grid>
-                </StackLayout>
-                <StackLayout
-                    Padding="30,0,30,10"
-                    VerticalOptions="End">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <StackLayout
-                            VerticalOptions="Center"
-                            Grid.Column="0">
-                            <BoxView
-                                HeightRequest="1"
-                                Color="Black"/>
-                        </StackLayout>                       
+                    </StackLayout>
+                    <StackLayout
+                        Margin="0,10"
+                        Padding="30,0">
+                        <controls:CanvasView
+                            Elevation="2"
+                            CornerRadius="10"
+                            BackgroundColor="#EDF0F8">
+                            <controls:CanvasView.Padding>
+                                <OnPlatform x:TypeArguments="Thickness" 
+                                    Android="10,0" 
+                                    iOS="10"/>
+                            </controls:CanvasView.Padding>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Grid.Column="0">
+                                    <Image.Source>
+                                        <FontImageSource
+                                            Color="Black"
+                                            Size="20"
+                                            Glyph="{x:Static font:FontAwesomeIcons.Password}"
+                                            FontFamily="Solid"/>
+                                    </Image.Source>
+                                </Image>
+                                <Entry
+                                    IsPassword="{Binding IsPassword}"
+                                    PlaceholderColor="Gray"
+                                    Placeholder="Contraseña"
+                                    TextColor="Black"
+                                    Text="{Binding Password}"
+                                    Grid.Column="1">
+                                    <Entry.FontSize>
+                                        <OnPlatform x:TypeArguments="x:Double"
+                                            Android="18" 
+                                            iOS="20"/>
+                                    </Entry.FontSize>
+                                </Entry>
+                                <Image
+                                    Grid.Column="2"
+                                    Source="{Binding Img}">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TapImgCommand}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Grid>
+                        </controls:CanvasView>
+                    </StackLayout>
+                    <StackLayout
+                        Margin="0,10"
+                        Padding="30,0">
+                        <controls:CustomButton
+                            HeightRequest="60"
+                            IsCapital="False"
+                            Command="{Binding LogInCommand}"
+                            Text="Iniciar Sesion"
+                            TextColor="#F4364C"
+                            BackgroundColor="White"
+                            BorderWidth="1"
+                            BorderColor="#F4364C"
+                            CornerRadius="30">
+                            <controls:CustomButton.FontSize>
+                                <OnPlatform x:TypeArguments="x:Double"
+                                    Android="15" 
+                                    iOS="20"/>
+                            </controls:CustomButton.FontSize>
+                        </controls:CustomButton>
+                    </StackLayout>
+                    <StackLayout
+                        Padding="0,0,30,20"
+                        HorizontalOptions="End">
                         <Label
-                            Grid.Column="1"
-                            FontAttributes="Bold"
+                            TextDecorations="Underline"
+                            FontSize="Default"
+                            TextColor="#F4364C"
+                            Text="Olvido Contraseña?"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Grid
+                            Padding="30,0,30,20"
+                            ColumnSpacing="20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <controls:CanvasView
+                                BorderColor="#3b5998"
+                                Grid.Column="0"
+                                Elevation="2"
+                                BorderDrawingStyle="Inside"
+                                BorderThickness="1"
+                                Padding="15,15"
+                                CornerRadius="25"
+                                BackgroundColor="#3b5998">
+                                <Grid
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Grid.Column="0">
+                                        <Image.Source>
+                                            <FontImageSource
+                                                Color="White"
+                                                Size="20"
+                                                Glyph="{x:Static font:FontAwesomeIcons.Facebook}"
+                                                FontFamily="Brands"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <Label
+                                        VerticalOptions="Center"
+                                        Grid.Column="1"
+                                        TextColor="White"
+                                        Text="Facebook"/>
+                                </Grid>                           
+                            </controls:CanvasView>
+                            <controls:CanvasView
+                                BorderDrawingStyle="Inside"
+                                BorderThickness="1"
+                                BorderColor="#DB4437"
+                                Grid.Column="1"
+                                Elevation="2"
+                                Padding="15,10"
+                                CornerRadius="25"
+                                BackgroundColor="White">
+                                <Grid
+                                    HorizontalOptions="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Grid.Column="0">
+                                        <Image.Source>
+                                            <FontImageSource
+                                                Size="20"
+                                                Color="#DB4437"
+                                                Glyph="{x:Static font:FontAwesomeIcons.Google}"
+                                                FontFamily="Brands"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <Label
+                                        VerticalOptions="Center"
+                                        Grid.Column="1"
+                                        TextColor="Black"
+                                        Text="Google"/>
+                                </Grid> 
+                            </controls:CanvasView>
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout
+                        Padding="30,0,30,10"
+                        VerticalOptions="End">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout
+                                VerticalOptions="Center"
+                                Grid.Column="0">
+                                <BoxView
+                                    HeightRequest="1"
+                                    Color="LightGray"/>
+                            </StackLayout>                       
+                            <Label
+                                Grid.Column="1"
+                                FontAttributes="Bold"
+                                TextColor="Gray"
+                                Text="O"/>
+                            <StackLayout
+                                VerticalOptions="Center"
+                                Grid.Column="2">
+                                <BoxView
+                                    HeightRequest="1"
+                                    Color="LightGray"/>
+                            </StackLayout>
+                        </Grid>                   
+                    </StackLayout>
+                    <StackLayout
+                        HorizontalOptions="Center"
+                        Orientation="Horizontal">
+                        <Label
+                            FontSize="Default"
                             TextColor="Black"
-                            Text="O"/>
-                        <StackLayout
-                            VerticalOptions="Center"
-                            Grid.Column="2">
-                            <BoxView
-                                HeightRequest="1"
-                                Color="Black"/>
-                        </StackLayout>
-                    </Grid>                   
+                            Text="¿Nuevo?"/>
+                        <Label
+                            FontSize="Default"
+                            FontAttributes="Bold"
+                            TextColor="#F4364C"
+                            Text="Registrate Aqui">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ValidateUserRegisterCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
                 </StackLayout>
-                <StackLayout
-                    HorizontalOptions="Center"
-                    Orientation="Horizontal"
-                    VerticalOptions="EndAndExpand">
-                    <Label
-                        FontSize="Default"
-                        TextColor="Black"
-                        Text="¿Nuevo?"/>
-                    <Label
-                        FontSize="Default"
-                        FontAttributes="Bold"
-                        TextColor="#F4364C"
-                        Text="Registrate Aqui">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding ValidateUserRegisterCommand}"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-                </StackLayout>
-            </StackLayout>
+            </Grid>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
