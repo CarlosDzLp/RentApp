@@ -84,6 +84,8 @@
     <Compile Include="Controls\CustomImageRenderer.cs" />
     <Compile Include="Controls\KeyboardViewRenderer.cs" />
     <Compile Include="Controls\CustomPickerRenderer.cs" />
+    <Compile Include="Controls\CustomButtonRenderer.cs" />
+    <Compile Include="Controls\CustomDatePickerRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

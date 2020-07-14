@@ -43,6 +43,8 @@
     <Folder Include="Converts\" />
     <Folder Include="Models\Users\" />
     <Folder Include="Font\" />
+    <Folder Include="Models\Municipality\" />
+    <Folder Include="Models\SubCategory\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Font\FontAwesome5Brands.otf" />

@@ -14,6 +14,8 @@ namespace RentApp.Views.Session
             this.BindingContext = new LoginPageViewModel();
             On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(false);
             Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, true);
+            if (Device.RuntimePlatform == Device.iOS)
+                entryemail.Keyboard = Keyboard.Create(KeyboardFlags.CapitalizeNone);
         }
         protected override void OnAppearing()
         {

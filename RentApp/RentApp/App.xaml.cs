@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using RentApp.DataBase;
+using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
@@ -19,7 +20,10 @@ namespace RentApp
                 "CarouselView_Experimental",
                 "IndicatorView_Experimental"
             });
-            MainPage = Navigation(new Views.Session.LoginPage());
+            if (DbContext.Instance.GetUser() == null)
+                MainPage = Navigation(new Views.Session.LoginPage());
+            else
+                MainPage = Navigation(new Views.Principal.MasterPage());
         }
 
         public static Xamarin.Forms.NavigationPage NavigationPage { get; set; }

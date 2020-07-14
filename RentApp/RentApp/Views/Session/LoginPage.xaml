@@ -59,6 +59,7 @@
                                 <Entry
                                     PlaceholderColor="Gray"
                                     Placeholder="Correo"
+                                    x:Name="entryemail"
                                     TextColor="Black"
                                     Text="{Binding Email}"
                                     Grid.Column="1">

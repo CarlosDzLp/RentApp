@@ -108,19 +108,13 @@ namespace RentApp.Service
             }
         }
 
-        public async Task Authenticate()
+        private async Task Authenticate(string serializer)
         {
             try
             {
-                var tokenModel = new AuthenticateModel
-                {
-                    User = "ryankar90@hotmail.com",
-                    Password = "carlosdiaz90#"
-                };
-                var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(tokenModel);
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(Settings.URL);
-                HttpContent content = new StringContent(jsonString, Encoding.UTF8, "application/json");
+                HttpContent content = new StringContent(serializer, Encoding.UTF8, "application/json");
                 var response = await client.PostAsync("authenticate/auth", content);
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
@@ -134,5 +128,45 @@ namespace RentApp.Service
 
             }
         }
+
+        public async Task<TokenRequest> GetToken ()
+        {
+            try
+            {
+                var user = DbContext.Instance.GetUser();
+                var auth = new AuthenticateModel();
+                auth.User = user.Users;
+                auth.Password = user.Password;
+                var serializer = Newtonsoft.Json.JsonConvert.SerializeObject(auth);
+                var db = DbContext.Instance.GetToken();
+                if (db != null)
+                {
+                    var datenow = DateTime.Now.AddMinutes(30);
+                    var date = DateTime.Compare(db.Date, datenow);
+                    if (date <= 0)
+                    {
+                        // token valido
+                        return db;
+                    }
+                    else
+                    {
+                        //obtener token
+                        await Authenticate(serializer);
+                        return db = DbContext.Instance.GetToken();
+                    }
+                }
+                else
+                {
+                    //obtengo el token del servicio e inserto
+                    await Authenticate(serializer);
+                    return db = DbContext.Instance.GetToken();
+                }
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+        }
+
     }
 }

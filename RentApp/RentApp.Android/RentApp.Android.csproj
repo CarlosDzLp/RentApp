@@ -99,6 +99,7 @@
     <Compile Include="Controls\CustomImageRenderer.cs" />
     <Compile Include="Controls\CustomTabbedPageRenderer.cs" />
     <Compile Include="Controls\CustomPickerRenderer.cs" />
+    <Compile Include="Controls\CustomDatePickerRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

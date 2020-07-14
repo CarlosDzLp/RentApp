@@ -45,9 +45,9 @@ namespace RentApp.iOS.Controls
             if (Element != null)
             {
                 if(App.ScreenHeight >=812)
-                    Element.Margin = new Thickness(0, 0, 0, keyboardSize.Height-34); //push the entry up to keyboard height when keyboard is activated
+                    Element.Margin = new Thickness(0, 0, 0, keyboardSize.Height-1); //push the entry up to keyboard height when keyboard is activated
                 else
-                    Element.Margin = new Thickness(0, 0, 0, keyboardSize.Height);
+                    Element.Margin = new Thickness(0, 0, 0, keyboardSize.Height-1);
             }
         }
 

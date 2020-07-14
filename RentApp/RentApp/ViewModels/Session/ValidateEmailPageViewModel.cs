@@ -3,6 +3,7 @@ using System.Windows.Input;
 using RentApp.Font;
 using RentApp.Helpers;
 using RentApp.Models.Response;
+using RentApp.Models.Users;
 using RentApp.Service;
 using RentApp.ViewModels.Base;
 using Xamarin.Forms;
@@ -28,6 +29,8 @@ namespace RentApp.ViewModels.Session
             }
         }
         public string Img { get; set; }
+
+        public bool ActiveButton { get; set; }
         #endregion
 
         #region Constructor
@@ -35,8 +38,9 @@ namespace RentApp.ViewModels.Session
         {
             TintColor = Color.Black;
             Img = FontAwesomeIcons.Close;
-
-            ValidateEmailCommand = new Command(ValidateEmailCommandExecuted);
+#if DEBUG
+            Email = "ryankar90@hotmail.com";
+#endif
         }
         #endregion
 
@@ -49,30 +53,30 @@ namespace RentApp.ViewModels.Session
                 {
                     Img = FontAwesomeIcons.Done;
                     TintColor = Color.Green;
+                    ActiveButton = true;
                 }
                 else
                 {
                     Img = FontAwesomeIcons.Close;
                     TintColor = Color.Red;
+                    ActiveButton = false;
                 }
             }
             else
             {
                 Img = FontAwesomeIcons.Close;
                 TintColor = Color.Black;
+                ActiveButton = false;
             }            
         }
         #endregion
 
-        #region Command
-        public ICommand ValidateEmailCommand { get; set; }
-        #endregion
-
         #region CommandExecuted
-        private async void ValidateEmailCommandExecuted()
+        public async void ValidateEmailCommandExecuted()
         {
             try
             {
+                ActiveButton = false;
                 if (!string.IsNullOrWhiteSpace(Email))
                 {
                     if (Validate.Email(Email))
@@ -81,9 +85,10 @@ namespace RentApp.ViewModels.Session
                         TintColor = Color.Green;
 
                         Show("Obteniendo datos");
-                        var response = await client.Get<Response<string>>($"rentapp/validateuser?user={Email}");
+                        var response = await client.Get<Response<UserModel>>($"rentapp/validateuser?user={Email}");
                         Hide();
-                        if(response != null)
+                        ActiveButton = true;
+                        if (response != null)
                         {
                             if(response.Result == null && response.Count == 0)
                             {
@@ -92,6 +97,7 @@ namespace RentApp.ViewModels.Session
                             }
                             else
                             {
+                                ActiveButton = true;
                                 Snack("El correo ya esta en uso", "RentApp", TypeSnackbar.Error);
                             }
                         }
@@ -102,12 +108,14 @@ namespace RentApp.ViewModels.Session
                     }
                     else
                     {
+                        ActiveButton = false;
                         Img = FontAwesomeIcons.Close;
                         TintColor = Color.Red;
                     }
                 }
                 else
                 {
+                    ActiveButton = false;
                     Toast("Ingrese un correo");
                     Img = FontAwesomeIcons.Close;
                     TintColor = Color.Black;
@@ -116,6 +124,7 @@ namespace RentApp.ViewModels.Session
             catch(Exception ex)
             {
                 Hide();
+                ActiveButton = false;
             }
         }
         #endregion

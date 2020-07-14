@@ -10,6 +10,6 @@ namespace RentApp.Service
         Task<T> Post<T>(string deserialice, string url, string token = null);
         Task<T> Put<T>(string deserialice, string url, string token = null);
         Task<T> Delete<T>(string url, string token = null);
-        Task Authenticate();
+        //Task Authenticate();
     }
 }

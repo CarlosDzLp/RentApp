@@ -12,5 +12,6 @@ namespace RentApp.Font
         public const string Close = "\uf00d";
         public const string Done = "\uf058";
         public const string Arrow = "\uf13a";
+        public const string Calendar = "\uf073";
     }
 }
