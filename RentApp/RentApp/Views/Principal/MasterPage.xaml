@@ -1,74 +1,68 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
+    x:Class="RentApp.Views.Principal.MasterPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="RentApp.Views.Principal.MasterPage"
     Title=""
     BackgroundColor="White">
     <ContentPage.Content>
-        <ScrollView
-            VerticalScrollBarVisibility="Never">
+        <ScrollView VerticalScrollBarVisibility="Never">
             <StackLayout>
                 <StackLayout>
                     <Label
-                        HorizontalOptions="Start"
                         FontSize="20"
+                        HorizontalOptions="Start"
+                        Text="Categorias"
                         TextColor="Black"
-                        VerticalOptions="CenterAndExpand"
-                        Text="Categorias"/>
+                        VerticalOptions="CenterAndExpand" />
                     <CollectionView
                         HeightRequest="80"
                         HorizontalScrollBarVisibility="Never"
-                        ItemsSource="{Binding ListCategory}">
+                        ItemsSource="{Binding ListCategory}"
+                        SelectionChangedCommand="{Binding SelectedItem, Source={x:Reference cvTagsCollectionView}}"
+                        SelectionChangedCommandParameter="{Binding .}">
                         <CollectionView.ItemsLayout>
                             <GridItemsLayout
-                                Orientation="Horizontal" 
+                                Orientation="Horizontal"
                                 SnapPointsAlignment="Start"
-                                SnapPointsType="Mandatory"/>
+                                SnapPointsType="Mandatory" />
                         </CollectionView.ItemsLayout>
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <Grid
-                                    Padding="15,0"
-                                    RowSpacing="0">
+                                <Grid Padding="15,0" RowSpacing="0">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*" />
                                         <RowDefinition Height="15" />
                                     </Grid.RowDefinitions>
-                                    <StackLayout
-                                        VerticalOptions="Start"
-                                        Grid.Row="0">
+                                    <StackLayout Grid.Row="0" VerticalOptions="Start">
                                         <Image
-                                            BackgroundColor="Red"
-                                            VerticalOptions="CenterAndExpand"
-                                            Aspect="AspectFit"
                                             Grid.Column="0"
+                                            Aspect="AspectFit"
+                                            BackgroundColor="Red"
                                             HeightRequest="60"
+                                            VerticalOptions="CenterAndExpand"
                                             WidthRequest="60">
                                             <Image.Clip>
                                                 <EllipseGeometry
+                                                    Center="30,30"
                                                     RadiusX="30"
-                                                    RadiusY="30"
-                                                    Center="30,30"/>
+                                                    RadiusY="30" />
                                             </Image.Clip>
                                         </Image>
                                     </StackLayout>
-                                    <StackLayout
-                                        VerticalOptions="Start"
-                                        Grid.Row="1">
+                                    <StackLayout Grid.Row="1" VerticalOptions="Start">
                                         <Label
-                                            HorizontalOptions="Center"
                                             FontSize="12"
+                                            HorizontalOptions="Center"
+                                            Text="{Binding NameSubCategory}"
                                             TextColor="Gray"
-                                            VerticalOptions="Start"
-                                            Text="{Binding NameSubCategory}"/>
+                                            VerticalOptions="Start" />
                                     </StackLayout>
-                                    
                                 </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
-                </StackLayout>              
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
