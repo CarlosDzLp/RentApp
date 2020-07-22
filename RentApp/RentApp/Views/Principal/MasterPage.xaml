@@ -16,11 +16,13 @@
                         TextColor="Black"
                         VerticalOptions="CenterAndExpand" />
                     <CollectionView
+                        x:Name="collectionView"
                         HeightRequest="80"
                         HorizontalScrollBarVisibility="Never"
                         ItemsSource="{Binding ListCategory}"
-                        SelectionChangedCommand="{Binding SelectedItem, Source={x:Reference cvTagsCollectionView}}"
-                        SelectionChangedCommandParameter="{Binding .}">
+                        SelectionChangedCommand="{Binding SelectedItemCommand}"
+                        SelectionChangedCommandParameter="{Binding Source={x:Reference collectionView}, Path=SelectedItem}"
+                        SelectionMode="Single">
                         <CollectionView.ItemsLayout>
                             <GridItemsLayout
                                 Orientation="Horizontal"

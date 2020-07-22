@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using RentApp.DataBase;
+using System.Windows.Input;
 using RentApp.Models.Response;
 using RentApp.Models.SubCategory;
-using RentApp.Models.Tokens;
 using RentApp.Service;
 using RentApp.ViewModels.Base;
+using Xamarin.Forms;
 
 namespace RentApp.ViewModels.Principal
 {
@@ -22,7 +22,12 @@ namespace RentApp.ViewModels.Principal
         public MasterPageViewModel()
         {
             LoadCategory();
+            SelectedItemCommand = new Command<SubCategoryModel>(SelectedItemCommandExecuted);
         }
+        #endregion
+
+        #region Command
+        public ICommand SelectedItemCommand { get; set; }
         #endregion
 
         #region Methods
@@ -45,6 +50,23 @@ namespace RentApp.ViewModels.Principal
                             }
                         }
                     }
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
+        #endregion
+
+        #region CommandExecuted
+        private void SelectedItemCommandExecuted(SubCategoryModel SubCategory)
+        {
+            try
+            {
+                if(SubCategory != null)
+                {
+
                 }
             }
             catch(Exception ex)
