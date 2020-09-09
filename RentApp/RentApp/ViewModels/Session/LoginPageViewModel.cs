@@ -17,34 +17,21 @@ namespace RentApp.ViewModels.Session
         ServiceClient client = new ServiceClient();
         #region Properties
         public string Email { get; set; }
-
-        public bool IsPassword { get; set; } = true;
-
         public string Password { get; set; }
 
-
-        public ImageSource Img { get; set; }
-
+        public Color ColorEmail { get; set; } = Color.FromHex("#D1D1D1");
+        public Color ColorPassword { get; set; } = Color.FromHex("#D1D1D1");
         #endregion
 
         #region Constructor
         public LoginPageViewModel( )
         {
 #if DEBUG
-            Email = "ryankar90@hotmail.com";
-            Password = "1234567890";
+            //Email = "ryankar90@hotmail.com";
+            //Password = "1234567890";
 #endif
-
-            Img = new FontImageSource()
-            {
-                FontFamily = "Solid",
-                Size = 20,
-                Color = Color.Black,
-                Glyph = FontAwesomeIcons.Show
-            };
-            TapImgCommand = new Command(TapImgCommandExecuted);
             LogInCommand = new Command(LogInCommandExecuted);
-            ValidateUserRegisterCommand = new Command(ValidateUserRegisterCommandExecuted);
+            RegisterCommand = new Command(RegisterCommandExecuted);
         }
 
         
@@ -55,45 +42,30 @@ namespace RentApp.ViewModels.Session
         #endregion
 
         #region Command
-        public ICommand TapImgCommand { get; set; }
         public ICommand LogInCommand { get; set; }
-        public ICommand ValidateUserRegisterCommand { get; set; }
+        public ICommand RegisterCommand { get; set; }
         #endregion
 
         #region CommandExecuted
-        int band = 0;
-        private void TapImgCommandExecuted()
-        {
-            if(band == 0)
-            {
-                IsPassword = false;
-                Img = new FontImageSource()
-                {
-                    FontFamily = "Solid",
-                    Size = 20,
-                    Color = Color.Black,
-                    Glyph = FontAwesomeIcons.Hide
-                };
-                band = 1;
-            }
-            else
-            {
-                IsPassword = true;
-                Img = new FontImageSource()
-                {
-                    FontFamily = "Solid",
-                    Size = 20,
-                    Color = Color.Black,
-                    Glyph = FontAwesomeIcons.Show
-                };
-                band = 0;
-            }
-        }
-
         private async void LogInCommandExecuted()
         {
             try
             {
+                if(string.IsNullOrWhiteSpace(Email))
+                {
+                    ColorEmail = Color.Red;
+                    return;
+                }
+                else
+                    ColorEmail = Color.FromHex("#E3E3E3");
+                if(string.IsNullOrWhiteSpace(Password))
+                {
+                    ColorPassword = Color.Red;
+                    return;
+                }
+                else
+                    ColorPassword = Color.FromHex("#E3E3E3");
+
                 Show("Cargando...");
                 var authenticate = new AuthenticateModel();
                 authenticate.User = Email;
@@ -124,7 +96,7 @@ namespace RentApp.ViewModels.Session
             }
         }
 
-        private void ValidateUserRegisterCommandExecuted()
+        private void RegisterCommandExecuted()
         {
             try
             {

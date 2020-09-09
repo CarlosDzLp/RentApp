@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="RentApp.Views.Session.SelectMunicipalityPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:RentApp.Controls"
+    xmlns:font="clr-namespace:RentApp.Font"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,*">
+            <Label
+                Grid.Row="0"
+                Margin="10"
+                FontAttributes="Bold"
+                FontSize="20"
+                Text="Elija un municipio"
+                TextColor="Black" />
+            <controls:CustomListView
+                Grid.Row="1"
+                ios:ListView.SeparatorStyle="FullWidth"
+                Footer=""
+                HasUnevenRows="True"
+                ItemsSource="{Binding ListMunicipality}"
+                SelectedItemCommand="{Binding SelectedItemMunicipalityCommand}"
+                SeparatorColor="LightGray"
+                SeparatorVisibility="Default"
+                VerticalScrollBarVisibility="Never">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10" ColumnDefinitions="*,Auto">
+                                <Label
+                                    Grid.Column="0"
+                                    FontSize="15"
+                                    Text="{Binding Name}"
+                                    TextColor="Black"
+                                    VerticalOptions="Center"
+                                    VerticalTextAlignment="Center" />
+                                <Image Grid.Column="1">
+                                    <Image.Source>
+                                        <FontImageSource
+                                            FontFamily="SolidPro"
+                                            Glyph="{x:Static font:FontAwesomeIcons.ArrowRigth}"
+                                            Color="Black" />
+                                    </Image.Source>
+                                </Image>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </controls:CustomListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

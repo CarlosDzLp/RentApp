@@ -44,10 +44,10 @@ namespace RentApp.iOS.Controls
             CGSize keyboardSize = result.RectangleFValue.Size;
             if (Element != null)
             {
-                if(App.ScreenHeight >=812)
-                    Element.Margin = new Thickness(0, 0, 0, keyboardSize.Height-1); //push the entry up to keyboard height when keyboard is activated
-                else
-                    Element.Margin = new Thickness(0, 0, 0, keyboardSize.Height-1);
+                if (UIScreen.MainScreen.Bounds.Size.Height >= 810)//iphone a X
+                    Element.Margin = new Thickness(0, 0, 0, keyboardSize.Height - 35);
+                else // iphone de X menor
+                    Element.Margin = new Thickness(0, 0, 0, keyboardSize.Height - 48);
             }
         }
 
@@ -55,7 +55,7 @@ namespace RentApp.iOS.Controls
         {
             if (Element != null)
             {
-                Element.Margin = new Thickness(0,0,0,-1); //set the margins to zero when keyboard is dismissed
+                Element.Margin = new Thickness(0,0,0,0); //set the margins to zero when keyboard is dismissed
             }
 
         }

@@ -50,10 +50,18 @@
     <None Remove="Font\FontAwesome5Brands.otf" />
     <None Remove="Font\FontAwesome5Regular.otf" />
     <None Remove="Font\FontAwesome5Solid.otf" />
+    <None Remove="Font\fabrands400.otf" />
+    <None Remove="Font\falight300.otf" />
+    <None Remove="Font\faregular400.otf" />
+    <None Remove="Font\fasolid900.otf" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Font\FontAwesome5Brands.otf" />
     <EmbeddedResource Include="Font\FontAwesome5Regular.otf" />
     <EmbeddedResource Include="Font\FontAwesome5Solid.otf" />
+    <EmbeddedResource Include="Font\fabrands400.otf" />
+    <EmbeddedResource Include="Font\falight300.otf" />
+    <EmbeddedResource Include="Font\faregular400.otf" />
+    <EmbeddedResource Include="Font\fasolid900.otf" />
   </ItemGroup>
 </Project>

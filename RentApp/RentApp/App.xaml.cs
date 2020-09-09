@@ -6,6 +6,11 @@ using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 [assembly: ExportFont("FontAwesome5Brands.otf", Alias = "Brands")]
 [assembly: ExportFont("FontAwesome5Regular.otf", Alias = "Regular")]
 [assembly: ExportFont("FontAwesome5Solid.otf", Alias = "Solid")]
+
+[assembly: ExportFont("fabrands400.otf", Alias = "BrandsPro")]
+[assembly: ExportFont("falight300.otf", Alias = "LightPro")]
+[assembly: ExportFont("faregular400.otf", Alias = "RegularPro")]
+[assembly: ExportFont("fasolid900.otf", Alias = "SolidPro")]
 namespace RentApp
 {
     public partial class App : Xamarin.Forms.Application
@@ -16,10 +21,12 @@ namespace RentApp
         public App()
         {
             InitializeComponent();
-            Device.SetFlags(new[] {
+            Device.SetFlags(new[]
+            {
                 "CarouselView_Experimental",
                 "IndicatorView_Experimental"
             });
+
             if (DbContext.Instance.GetUser() == null)
                 MainPage = Navigation(new Views.Session.LoginPage());
             else
