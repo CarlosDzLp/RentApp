@@ -1,13 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.ecocadiaz.rentapp">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="29" />
-	<application android:label="RentApp.Android" android:icon="@drawable/logo">
+	<application 
+        android:label="RentApp.Android" 
+        android:icon="@drawable/logo">
+        
+        
 		<provider android:name="android.support.v4.content.FileProvider" android:authorities="com.ecocadiaz.rentapp.fileprovider" android:exported="false" android:grantUriPermissions="true">
 			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
 		</provider>
 		<uses-library android:name="org.apache.http.legacy" android:required="false" />
 		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCHw9WWFbqSLOLtYxCa0z4aP3XkaUl3C9Y" />
-	</application>
+	<activity
+            android:name=".MainActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:supportsPictureInPicture="true">
+        </activity>
+    
+    </application>
 	<uses-permission android:name="android.permission.CAMERA" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />

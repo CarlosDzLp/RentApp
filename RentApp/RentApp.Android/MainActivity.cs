@@ -34,6 +34,7 @@ namespace RentApp.Droid
             //{
             //    BitmapDescriptorFactory = new CachingNativeBitmapDescriptorFactory()
             //};
+
             App.ScreenHeight = (int)(Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density);
             App.ScreenWidth = (int)(Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Density);
             //Xamarin.FormsGoogleMaps.Init(this, savedInstanceState, platformConfig);
@@ -46,10 +47,15 @@ namespace RentApp.Droid
                 }
                 else
                 {
+                    
                     ClearLightStatusBar(this,sender.ColorHex);
+                    //PictureInPictureParams pictureInPictureParams = new PictureInPictureParams.Builder().Build();
+                    //EnterPictureInPictureMode(pictureInPictureParams);
                 }
             });
         }
+
+
 
         private void GetPermissions()
         {
