@@ -1,48 +1,16 @@
-﻿using RentApp.DataBase;
+﻿using System;
 using Xamarin.Forms;
-using Xamarin.Forms.PlatformConfiguration;
-using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using Xamarin.Forms.Xaml;
 
-[assembly: ExportFont("FontAwesome5Brands.otf", Alias = "Brands")]
-[assembly: ExportFont("FontAwesome5Regular.otf", Alias = "Regular")]
-[assembly: ExportFont("FontAwesome5Solid.otf", Alias = "Solid")]
-
-[assembly: ExportFont("fabrands400.otf", Alias = "BrandsPro")]
-[assembly: ExportFont("falight300.otf", Alias = "LightPro")]
-[assembly: ExportFont("faregular400.otf", Alias = "RegularPro")]
-[assembly: ExportFont("fasolid900.otf", Alias = "SolidPro")]
 namespace RentApp
 {
-    public partial class App : Xamarin.Forms.Application
+    public partial class App : Application
     {
-        public static int ScreenHeight { get; set; }
-        public static int ScreenWidth { get; set; }
-
         public App()
         {
             InitializeComponent();
-            Device.SetFlags(new[]
-            {
-                "CarouselView_Experimental",
-                "IndicatorView_Experimental"
-            });
 
-            if (DbContext.Instance.GetUser() == null)
-                MainPage = Navigation(new Views.Session.LoginPage());
-            else
-                MainPage = Navigation(new Views.Principal.MasterPage());
-        }
-
-        public static Xamarin.Forms.NavigationPage NavigationPage { get; set; }
-        public static Xamarin.Forms.NavigationPage Navigation(Xamarin.Forms.Page page)
-        {
-            var nav = new Xamarin.Forms.NavigationPage(page);
-            nav.On<iOS>().SetHideNavigationBarSeparator(true);
-            nav.BackgroundColor = Color.White;
-            nav.BarBackgroundColor = Color.FromHex("#F4364C");
-            nav.BarTextColor = Color.White;
-            NavigationPage = nav;
-            return nav;
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()
