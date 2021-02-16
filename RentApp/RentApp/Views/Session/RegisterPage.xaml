@@ -13,7 +13,11 @@
             <controls:NavigationView />
             <pancakeview:PancakeView Grid.Row="1"
                                      BackgroundColor="White"
-                                     CornerRadius="20,20,0,0" />
+                                     CornerRadius="20,20,0,0">
+                <ScrollView VerticalScrollBarVisibility="Never">
+                    <StackLayout BackgroundColor="Blue" />
+                </ScrollView>
+            </pancakeview:PancakeView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

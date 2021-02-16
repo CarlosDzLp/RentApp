@@ -20,9 +20,20 @@
                                      HorizontalOptions="Center"
                                      VerticalOptions="Center"
                                      WidthRequest="50">
-                <pancakeview:PancakeView.GestureRecognizers>
+                <!--<pancakeview:PancakeView.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                </pancakeview:PancakeView.GestureRecognizers>
+                </pancakeview:PancakeView.GestureRecognizers>-->
+                <Path Aspect="Uniform"
+                      Data="M15.5 19L8.5 12L15.5 5"
+                      HeightRequest="30"
+                      HorizontalOptions="Center"
+                      Stroke="White"
+                      VerticalOptions="Center"
+                      WidthRequest="30">
+                    <Path.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Path.GestureRecognizers>
+                </Path>
             </pancakeview:PancakeView>
             <StackLayout Grid.Column="1" Orientation="Horizontal">
                 <Image HorizontalOptions="Start"

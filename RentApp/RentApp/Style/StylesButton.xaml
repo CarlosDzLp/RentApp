@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary x:Class="RentApp.Style.StylesButton"
+                    xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Style x:Key="StickyBlueButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#1F244B" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="BorderRadius" Value="8" />
+        <Setter Property="Margin" Value="0" />
+    </Style>
+    <Style x:Key="StickyBlueButtonDisabled" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#979BB5" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="BorderRadius" Value="8" />
+        <Setter Property="Margin" Value="0" />
+    </Style>
+</ResourceDictionary>

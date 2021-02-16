@@ -15,6 +15,8 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/carlosdiazlopez/RentApp/RentApp/RentApp.iOS/AppDelegate.cs" relfile="RentApp.iOS/AppDelegate.cs" line="59" column="1" />
+      <Breakpoint file="/Users/carlosdiazlopez/RentApp/RentApp/RentApp/ViewModels/Session/OnBoardingPageViewModel.cs" relfile="RentApp/ViewModels/Session/OnBoardingPageViewModel.cs" line="47" column="1" />
+      <Breakpoint file="/Users/carlosdiazlopez/RentApp/RentApp/RentApp.iOS/Controls/CustomButtonRenderer.cs" relfile="RentApp.iOS/Controls/CustomButtonRenderer.cs" line="29" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
