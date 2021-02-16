@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using RentApp.iOS.Helpers;
 using UIKit;
 
 namespace RentApp.iOS
@@ -11,7 +12,7 @@ namespace RentApp.iOS
     // User Interface of the application, as well as listening (and optionally responding) to 
     // application events from iOS.
     [Register("AppDelegate")]
-    public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
+    public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IUIApplicationDelegate
     {
         //
         // This method is invoked when the application has loaded and is ready to run. In this 
@@ -23,9 +24,41 @@ namespace RentApp.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
 
+            LoadApplication(new App());
             return base.FinishedLaunching(app, options);
+
         }
+
+        //private void ColorStatus(UIApplication app)
+        //{
+        //    try
+        //    {
+        //        if (UIDevice.CurrentDevice.CheckSystemVersion(13, 0))
+        //        {
+        //            var Window = new UIWindow(UIScreen.MainScreen.Bounds)
+        //            {
+        //                RootViewController = new UIViewController()
+        //            };
+        //            Window.MakeKeyAndVisible();
+        //            var statusBar = new UIView(UIApplication.SharedApplication.StatusBarFrame)
+        //            {
+        //                BackgroundColor = ColorHelper.FromHex("#F4374D"),
+        //                TintColor = UIColor.White,
+        //            };
+        //            app.Delegate.GetWindow().AddSubview(statusBar);
+        //        }
+        //        else
+        //        {
+        //            var statusBar = UIApplication.SharedApplication.ValueForKey(new NSString("statusBarWindow")).ValueForKey(new NSString("statusBar")) as UIView;
+        //            statusBar.BackgroundColor = ColorHelper.FromHex("#F4374D");
+        //            statusBar.TintColor = UIColor.White;
+        //        }
+        //    }
+        //    catch(Exception ex)
+        //    {
+
+        //    }
+        //}
     }
 }

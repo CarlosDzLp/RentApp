@@ -68,6 +68,8 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helpers\ColorHelper.cs" />
+    <Compile Include="Controls\CustomPageRendere.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -162,5 +164,16 @@
       <Project>{A039D77A-F778-45DE-B3FE-6739054D3064}</Project>
       <Name>RentApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logocolor.png" />
+    <BundleResource Include="Resources\logowhite.png" />
+    <BundleResource Include="Resources\onboardimage.png" />
+    <BundleResource Include="Resources\circle.png" />
+    <BundleResource Include="Resources\Ellipse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+    <Folder Include="Controls\" />
   </ItemGroup>
 </Project>

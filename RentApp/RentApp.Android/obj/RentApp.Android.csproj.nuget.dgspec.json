@@ -1,0 +1,198 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/carlosdiazlopez/RentApp/RentApp/RentApp.Android/RentApp.Android.csproj": {}
+  },
+  "projects": {
+    "/Users/carlosdiazlopez/RentApp/RentApp/RentApp.Android/RentApp.Android.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/carlosdiazlopez/RentApp/RentApp/RentApp.Android/RentApp.Android.csproj",
+        "projectName": "RentApp.Android",
+        "projectPath": "/Users/carlosdiazlopez/RentApp/RentApp/RentApp.Android/RentApp.Android.csproj",
+        "packagesPath": "/Users/carlosdiazlopez/.nuget/packages/",
+        "outputPath": "/Users/carlosdiazlopez/RentApp/RentApp/RentApp.Android/obj/",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "/Users/carlosdiazlopez/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "monoandroid11.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "monoandroid11.0": {
+            "projectReferences": {
+              "/Users/carlosdiazlopez/RentApp/RentApp/RentApp/RentApp.csproj": {
+                "projectPath": "/Users/carlosdiazlopez/RentApp/RentApp/RentApp/RentApp.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "monoandroid11.0": {
+          "dependencies": {
+            "AndHUD": {
+              "target": "Package",
+              "version": "[1.4.2, )"
+            },
+            "Com.OneSignal": {
+              "target": "Package",
+              "version": "[3.10.4, )"
+            },
+            "Karamunting.Android.AviranAbady.CookieBar2": {
+              "target": "Package",
+              "version": "[1.1.4.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "Plugin.CurrentActivity": {
+              "target": "Package",
+              "version": "[2.1.0.4, )"
+            },
+            "PropertyChanged.Fody": {
+              "target": "Package",
+              "version": "[3.3.1, )"
+            },
+            "Rg.Plugins.Popup": {
+              "target": "Package",
+              "version": "[2.0.0.10, )"
+            },
+            "Xamarin.Android.Support.Annotations": {
+              "target": "Package",
+              "version": "[28.0.0.3, )"
+            },
+            "Xamarin.Android.Support.Compat": {
+              "target": "Package",
+              "version": "[28.0.0.3, )"
+            },
+            "Xamarin.AndroidX.Migration": {
+              "target": "Package",
+              "version": "[1.0.8, )"
+            },
+            "Xamarin.Build.Download": {
+              "target": "Package",
+              "version": "[0.10.0, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.6.1, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[5.0.0.1931, )"
+            },
+            "Xamarin.Forms.GoogleMaps": {
+              "target": "Package",
+              "version": "[4.0.0-BETA1, )"
+            },
+            "Xamarin.Forms.PancakeView": {
+              "target": "Package",
+              "version": "[2.3.0.759, )"
+            }
+          }
+        }
+      }
+    },
+    "/Users/carlosdiazlopez/RentApp/RentApp/RentApp/RentApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/carlosdiazlopez/RentApp/RentApp/RentApp/RentApp.csproj",
+        "projectName": "RentApp",
+        "projectPath": "/Users/carlosdiazlopez/RentApp/RentApp/RentApp/RentApp.csproj",
+        "packagesPath": "/Users/carlosdiazlopez/.nuget/packages/",
+        "outputPath": "/Users/carlosdiazlopez/RentApp/RentApp/RentApp/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/carlosdiazlopez/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Com.OneSignal": {
+              "target": "Package",
+              "version": "[3.10.4, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "PropertyChanged.Fody": {
+              "target": "Package",
+              "version": "[3.3.1, )"
+            },
+            "Rg.Plugins.Popup": {
+              "target": "Package",
+              "version": "[2.0.0.10, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.6.1, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[5.0.0.1931, )"
+            },
+            "Xamarin.Forms.GoogleMaps": {
+              "target": "Package",
+              "version": "[4.0.0-BETA1, )"
+            },
+            "Xamarin.Forms.PancakeView": {
+              "target": "Package",
+              "version": "[2.3.0.759, )"
+            },
+            "refit": {
+              "target": "Package",
+              "version": "[6.0.15, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

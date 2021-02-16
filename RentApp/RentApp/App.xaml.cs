@@ -9,8 +9,8 @@ namespace RentApp
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            
+            MainPage = new NavigationPage(new Views.Session.OnBoardingPage());
         }
 
         protected override void OnStart()

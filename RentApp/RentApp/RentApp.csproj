@@ -21,4 +21,18 @@
     <PackageReference Include="Com.OneSignal" Version="3.10.4" />
     <PackageReference Include="Xamarin.Forms.GoogleMaps" Version="4.0.0-BETA1" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Models\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="DbContext\" />
+    <Folder Include="Settings\" />
+    <Folder Include="Services\" />
+    <Folder Include="Converters\" />
+    <Folder Include="Views\Session\" />
+    <Folder Include="ViewModels\Base\" />
+    <Folder Include="ViewModels\Session\" />
+    <Folder Include="Controls\" />
+  </ItemGroup>
 </Project>

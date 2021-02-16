@@ -1,11 +1,11 @@
-﻿<Properties StartupConfiguration="{EC82F29C-C901-4D93-A8C3-67387021389C}|Default">
-  <MonoDevelop.Ide.ItemProperties.RentApp.iOS FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.RentApp.Android TriggeredFromHotReload="False" PreferredExecutionTarget="Android.R58M71K1VLF" />
+﻿<Properties StartupConfiguration="{FE81C560-6378-4554-86CE-9D806753A009}|Default">
+  <MonoDevelop.Ide.ItemProperties.RentApp.iOS TriggeredFromHotReload="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C1AF2A06-78C2-4C27-8603-3754956D1EEC" />
+  <MonoDevelop.Ide.ItemProperties.RentApp.Android TriggeredFromHotReload="False" PreferredExecutionTarget="Android.SelectDevice" />
   <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="RentApp" expanded="True" selected="True" />
+          <Node name="RentApp" expanded="True" />
         </State>
       </Pad>
     </Pads>
@@ -13,7 +13,9 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/carlosdiazlopez/RentApp/RentApp/RentApp.iOS/AppDelegate.cs" relfile="RentApp.iOS/AppDelegate.cs" line="59" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

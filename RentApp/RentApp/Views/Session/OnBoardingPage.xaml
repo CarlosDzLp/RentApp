@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="RentApp.Views.Session.OnBoardingPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             BackgroundColor="#F4374D"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid RowDefinitions="3*,2*">
+            <Grid Grid.Row="0"
+                  ColumnSpacing="0"
+                  RowSpacing="0">
+                <Image Margin="0,0,0,-100"
+                       HorizontalOptions="Start"
+                       Source="circle"
+                       VerticalOptions="End" />
+                <Image HorizontalOptions="Start"
+                       Source="Ellipse"
+                       VerticalOptions="Start" />
+                <Image HorizontalOptions="End"
+                       Rotation="-155"
+                       Source="Ellipse"
+                       VerticalOptions="End" />
+                <Image HeightRequest="400"
+                       HorizontalOptions="Center"
+                       Source="onboardimage"
+                       VerticalOptions="Center" />
+            </Grid>
+
+            <pancakeview:PancakeView Grid.Row="1"
+                                     BackgroundColor="White"
+                                     CornerRadius="30,30,0,0">
+                <StackLayout Padding="20,0"
+                             HorizontalOptions="Center"
+                             Spacing="20"
+                             VerticalOptions="Center">
+                    <Label FontAttributes="Bold"
+                           FontSize="30"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center"
+                           Text="RentApp tu mejor opcion para buscar, tu lugar."
+                           TextColor="#1F244B" />
+                    <Button BackgroundColor="#1F244B"
+                            Command="{Binding RegisterCommand}"
+                            CornerRadius="16"
+                            HeightRequest="60"
+                            Text="Registrarse"
+                            TextColor="White"
+                            VerticalOptions="Center" />
+                    <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                        <Label FontSize="16"
+                               Text="Ya tienes cuenta?"
+                               TextColor="#555568" />
+                        <Label FontSize="16"
+                               Text="Inicia sesión"
+                               TextColor="#F4374D">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding LogInCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+            </pancakeview:PancakeView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
