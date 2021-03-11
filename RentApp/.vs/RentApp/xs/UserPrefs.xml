@@ -1,11 +1,22 @@
-﻿<Properties StartupConfiguration="{FE81C560-6378-4554-86CE-9D806753A009}|Default">
-  <MonoDevelop.Ide.ItemProperties.RentApp.iOS TriggeredFromHotReload="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C1AF2A06-78C2-4C27-8603-3754956D1EEC" />
+﻿<Properties StartupConfiguration="{36E51696-8BDF-4250-B3D1-77C9D5BA5E8A}|Default">
+  <MonoDevelop.Ide.ItemProperties.RentApp.iOS TriggeredFromHotReload="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.0DF3AF9E-1E47-471B-824F-23B9F0E03B3D" />
   <MonoDevelop.Ide.ItemProperties.RentApp.Android TriggeredFromHotReload="False" PreferredExecutionTarget="Android.SelectDevice" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.RentAppApi PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="RentAppApi/Controllers/AuthController.cs">
+    <Files>
+      <File FileName="RentAppApi/Startup.cs" Line="57" Column="1" />
+      <File FileName="RentAppApi/Controllers/AuthController.cs" Line="25" Column="34" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="RentApp" expanded="True" />
+          <Node name="RentApp" expanded="True">
+            <Node name="RentAppApi" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="AuthController.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
         </State>
       </Pad>
     </Pads>
@@ -17,6 +28,7 @@
       <Breakpoint file="/Users/carlosdiazlopez/RentApp/RentApp/RentApp.iOS/AppDelegate.cs" relfile="RentApp.iOS/AppDelegate.cs" line="59" column="1" />
       <Breakpoint file="/Users/carlosdiazlopez/RentApp/RentApp/RentApp/ViewModels/Session/OnBoardingPageViewModel.cs" relfile="RentApp/ViewModels/Session/OnBoardingPageViewModel.cs" line="47" column="1" />
       <Breakpoint file="/Users/carlosdiazlopez/RentApp/RentApp/RentApp.iOS/Controls/CustomButtonRenderer.cs" relfile="RentApp.iOS/Controls/CustomButtonRenderer.cs" line="29" column="1" />
+      <Breakpoint file="/Users/carlosdiazlopez/RentApp/RentApp/RentAppApi/Controllers/AuthController.cs" relfile="RentAppApi/Controllers/AuthController.cs" line="26" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
