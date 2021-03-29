@@ -1,19 +1,17 @@
 ﻿<Properties StartupConfiguration="{EC82F29C-C901-4D93-A8C3-67387021389C}|Default">
   <MonoDevelop.Ide.ItemProperties.RentApp.iOS TriggeredFromHotReload="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.0DF3AF9E-1E47-471B-824F-23B9F0E03B3D" />
-  <MonoDevelop.Ide.ItemProperties.RentApp.Android TriggeredFromHotReload="False" PreferredExecutionTarget="Android.SelectDevice" />
+  <MonoDevelop.Ide.ItemProperties.RentApp.Android TriggeredFromHotReload="False" PreferredExecutionTarget="Android.R58M71K1VLF" />
   <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="RentApp" expanded="True">
-            <Node name="WEB" expanded="True">
-              <Node name="RentAppAPI" selected="True" />
-            </Node>
-          </Node>
+          <Node name="RentApp" expanded="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.WEB.RentAppEntities FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.WEB.RentAppViewModels FirstBuild="True" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

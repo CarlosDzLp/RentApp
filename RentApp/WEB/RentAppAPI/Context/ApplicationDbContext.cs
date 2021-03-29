@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
-using RentAppAPI.Entities;
+using RentAppEntities.Entities;
 
 namespace RentAppAPI.Context
 {
@@ -10,6 +10,6 @@ namespace RentAppAPI.Context
         {
         }
 
-        public DbSet<Users> User { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

@@ -11,9 +11,17 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.5" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Context\" />
-    <Folder Include="Entities\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RentAppViewModels\RentAppViewModels.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\RentAppEntities\RentAppEntities.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 </Project>
