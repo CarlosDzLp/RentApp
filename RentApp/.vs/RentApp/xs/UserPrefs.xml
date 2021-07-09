@@ -1,11 +1,13 @@
-﻿<Properties StartupConfiguration="{EC82F29C-C901-4D93-A8C3-67387021389C}|Default">
-  <MonoDevelop.Ide.ItemProperties.RentApp.iOS TriggeredFromHotReload="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.0DF3AF9E-1E47-471B-824F-23B9F0E03B3D" />
-  <MonoDevelop.Ide.ItemProperties.RentApp.Android TriggeredFromHotReload="False" PreferredExecutionTarget="Android.R58M71K1VLF" />
+﻿<Properties StartupConfiguration="{EC82F29C-C901-4D93-A8C3-67387021389C}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
+  <MonoDevelop.Ide.ItemProperties.RentApp.iOS automaticSigning="False" TriggeredFromHotReload="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.70EBA514-672E-4DA3-ADEE-8EC7F0127A5C" />
+  <MonoDevelop.Ide.ItemProperties.RentApp.Android AndroidDesignerPreferredTheme="MainTheme" PreferredExecutionTarget="Android.R28M21RS5VB" />
   <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="RentApp" expanded="True" />
+          <Node name="RentApp" expanded="True">
+            <Node name="RentApp.Android" selected="True" />
+          </Node>
         </State>
       </Pad>
     </Pads>
@@ -16,7 +18,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/carlosdiazlopez/RentApp/RentApp/RentApp.iOS/AppDelegate.cs" relfile="RentApp.iOS/AppDelegate.cs" line="59" column="1" />
+      <Breakpoint file="/Users/carlosdiazlopez/RentApp/RentApp/RentApp.iOS/AppDelegate.cs" relfile="RentApp.iOS/AppDelegate.cs" line="67" column="1" />
       <Breakpoint file="/Users/carlosdiazlopez/RentApp/RentApp/RentApp/ViewModels/Session/OnBoardingPageViewModel.cs" relfile="RentApp/ViewModels/Session/OnBoardingPageViewModel.cs" line="47" column="1" />
       <Breakpoint file="/Users/carlosdiazlopez/RentApp/RentApp/RentApp.iOS/Controls/CustomButtonRenderer.cs" relfile="RentApp.iOS/Controls/CustomButtonRenderer.cs" line="29" column="1" />
     </BreakpointStore>

@@ -1,11 +1,12 @@
-﻿using System;
-
+﻿
 using Android.App;
 using Android.Content.PM;
+using Android.OS;
 using Android.Runtime;
 using Android.Views;
-using Android.Widget;
-using Android.OS;
+using Plugin.CurrentActivity;
+using RentApp.Droid.Helpers;
+using Xamarin.Forms.GoogleMaps.Android;
 
 namespace RentApp.Droid
 {
@@ -21,7 +22,16 @@ namespace RentApp.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            var platformConfig = new PlatformConfig
+            {
+                BitmapDescriptorFactory = new CachingNativeBitmapDescriptorFactory()
+            };
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
+            Xamarin.FormsGoogleMaps.Init(this, savedInstanceState, platformConfig);
             LoadApplication(new App());
+            Window.SetStatusBarColor(Android.Graphics.Color.ParseColor("#F4374D"));
+            //
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

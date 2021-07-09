@@ -32,11 +32,33 @@
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
 	<string>RentApp</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Tu ubicación actual se mostrará en el mapa.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Tu ubicación actual se mostrará en el mapa.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Tu ubicación actual se mostrará en el mapa.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>El acceso se usara para almacenar</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>El acceso se usara para almacenar.</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>UIStatusBarStyle</key>
-<string>UIStatusBarStyleLightContent</string>
-<key>UIViewControllerBasedStatusBarAppearance</key>
-<false/>
+	<string>UIStatusBarStyleLightContent</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+		<string>remote-notification</string>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
